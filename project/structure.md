@@ -1,5 +1,17 @@
 # Estrutura do Projeto
 
+## Mini-cenário
+
+O aplicativo oferece várias alternativas de emprego para a sua área profissional. Cada empresa deve ter seu representante, responsável por cadastrar no sistema:
+
+- Nome da empresa
+- Àrea de ocupação da empresa
+- Endereço da empresa
+- E-mail
+- Número de telefone
+
+Além disto, para cada emprego ofertado, é de importância atualizar seus respectivos salários, carga horária, área de atuação e exigências. Quando não há vagas ofertadas, a empresa é movida para o "arquivo" e não deverá ser mostrada nos filtros e nem no menu principal do aplicativo.
+
 ## Classes e Métodos
 
 \* Quando a variável for `type`, significa que está ainda a definir.
@@ -19,7 +31,6 @@
         - *public type:* **getId()**
         - *public Owner:* **getOwner()**
 
-
 2. Classe: `Owner`
     - Atributos:
         - *private String:* **name**
@@ -33,7 +44,6 @@
         - *public string:* **getPassword()**
         - *public Date:* **getCreationDate()**
         - *public type:* **getCompany()**
-
 
 3. Classe: `Job`
     - Atributos:
@@ -55,7 +65,6 @@
         - *void:* **setRequirement(string requirement)**
         - *void:* **setRequirement(string[] requirements)**
         - *void:* **removeRequirements()**
-
 
 4. Classe: `Address`
     - Atributos:
