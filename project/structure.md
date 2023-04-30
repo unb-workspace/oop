@@ -31,12 +31,12 @@ Além disto, para cada emprego ofertado, é de importância atualizar seus respe
         - *public type:* **getId()**
         - *public Owner:* **getOwner()**
 
-2. Classe: `Owner`
+2. Classe: `User`
     - Atributos:
         - *private String:* **name**
         - *private String:* **password**
         - *private Date:* **creation_date**
-        - *private type::* **company**
+        - *private type:* **company**
 
     - Métodos:
         - *public boolean:* **setCompany(type ID)**
