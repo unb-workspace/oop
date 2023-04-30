@@ -14,22 +14,24 @@ Além disto, para cada emprego ofertado, é de importância atualizar seus respe
 
 ## Classes e Métodos
 
-\* Quando a variável for `type`, significa que está ainda a definir.
-
 1. Classe: `Company`
     -  Atributos:
-        - *private type:* **ID**
+        - *private int:* **ID**
         - *private String:* **name**
         - *private String::* **occupation_area**
         - *private String:* **email**
-        - *private long int:* **cellphone_number**
-        - *private Owner:* **owner**
+        - *private User:* **owner**
         - *private Address:* **address**
         - *private Job[]:* **jobs**
 
     - Métodos:
-        - *public type:* **getId()**
-        - *public Owner:* **getOwner()**
+        - *public int:* **getId()**
+        - *public User:* **getOwner()**
+        - *public String:* **getEmail()**
+        - *public String:* **getName()**
+        - *public String:* **getOccupationArea()**
+        - *public void:* **setName(String name)**
+        - *public void* **setEmail(String email)**
 
 2. Classe: `User`
     - Atributos:
@@ -39,8 +41,7 @@ Além disto, para cada emprego ofertado, é de importância atualizar seus respe
         - *private type:* **company**
 
     - Métodos:
-        - *public boolean:* **setCompany(type ID)**
-        - *public boolean:* **setCompany()**
+        - *public void:* **setCompany(type ID)**
         - *public string:* **getPassword()**
         - *public Date:* **getCreationDate()**
         - *public type:* **getCompany()**
