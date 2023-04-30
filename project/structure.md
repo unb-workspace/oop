@@ -63,9 +63,7 @@ Além disto, para cada emprego ofertado, é de importância atualizar seus respe
         - *void:* **setSalary(int salary)**
         - *void:* **setWorkload(int hours)**
         - *void:* **setModality(string modality)**
-        - *void:* **setRequirement(string requirement)**
         - *void:* **setRequirement(string[] requirements)**
-        - *void:* **removeRequirements()**
 
 4. Classe: `Address`
     - Atributos:

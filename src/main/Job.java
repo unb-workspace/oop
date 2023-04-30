@@ -25,4 +25,20 @@ public class Job {
         return requirements;
     }
 
+    public void setSalary(int salary) {
+        this.salary = salary;
+    }
+
+    public void setWorkload(int hours) {
+        this.workload = hours;
+    }
+
+    public void setModality(String modality) {
+        this.modality = modality;
+    }
+
+    public void setRequirements(String[] requirements) {
+        this.requirements = requirements;
+    }
+
 }

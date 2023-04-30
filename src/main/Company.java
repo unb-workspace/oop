@@ -3,16 +3,25 @@ public class Company {
     private String name;
     private final String occupation_area;
     private String email;
-    private long cellphone_number;
     private final User owner;
 
-    public Company(int ID, User owner, String name, String occupation_area, String email, long cellphone_number) {
+    private Address address;
+
+    public Company(int ID, User owner, String name, String occupation_area, String email) {
         this.ID = ID;
         this.owner = owner;
         this.name = name;
         this.occupation_area = occupation_area;
         this.email = email;
-        this.cellphone_number = cellphone_number;
+    }
+
+    public Company(int ID, User owner, String name, String occupation_area, String email, Address address) {
+        this.ID = ID;
+        this.owner = owner;
+        this.name = name;
+        this.occupation_area = occupation_area;
+        this.email = email;
+        this.address = address;
     }
     public int getId() {
         return ID;
@@ -33,9 +42,8 @@ public class Company {
     public String getEmail() {
         return email;
     }
-
-    public long getCellphoneNumber() {
-        return cellphone_number;
+    public Address getAddress() {
+        return address;
     }
 
     public void setName(String name) {
@@ -46,7 +54,11 @@ public class Company {
         this.email = email;
     }
 
-    public void setCellphoneNumber(long cellphone_number) {
-        this.cellphone_number = cellphone_number;
+    public void setAddress(Address address) {
+        this.address = address;
+    }
+
+    public String toString() {
+        return "{ name: " + getName() + ", email: " + getEmail() + ", occupation_area: " + getOccupationArea() + ", id: " + getId() + ", owner: " + owner.getUsername() + " }";
     }
 }
