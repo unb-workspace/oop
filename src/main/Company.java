@@ -1,34 +1,40 @@
+import java.util.ArrayList;
+
 public class Company {
     private final int ID;
     private String name;
     private final String occupation_area;
     private String email;
-    private final User owner;
-
+    private final Employer employer;
     private Address address;
+    private ArrayList<Job> jobs;
 
-    public Company(int ID, User owner, String name, String occupation_area, String email) {
+
+    public Company(int ID, Employer employer, String name, String occupation_area, String email) {
         this.ID = ID;
-        this.owner = owner;
+        this.employer = employer;
         this.name = name;
         this.occupation_area = occupation_area;
         this.email = email;
     }
 
-    public Company(int ID, User owner, String name, String occupation_area, String email, Address address) {
+    public Company(int ID, Employer employer, String name, String occupation_area, String email, Address address) {
+        this.jobs = new ArrayList<>();
         this.ID = ID;
-        this.owner = owner;
+        this.employer = employer;
         this.name = name;
         this.occupation_area = occupation_area;
         this.email = email;
         this.address = address;
     }
+
+
     public int getId() {
         return ID;
     }
 
-    public User getOwner() {
-        return owner;
+    public User getEmployer() {
+        return employer;
     }
 
     public String getName() {
@@ -57,8 +63,19 @@ public class Company {
     public void setAddress(Address address) {
         this.address = address;
     }
+    public ArrayList<Job> getJobs() {
+        return jobs;
+    }
+
+    public void addJob(Job job) {
+        jobs.add(job);
+    }
+
+    public void removeJob(Job job) {
+        jobs.remove(job);
+    }
 
     public String toString() {
-        return "{ name: " + getName() + ", email: " + getEmail() + ", occupation_area: " + getOccupationArea() + ", id: " + getId() + ", owner: " + owner.getUsername() + " }";
+        return "{ name: " + getName() + ", email: " + getEmail() + ", occupation_area: " + getOccupationArea() + ", id: " + getId() + ", owner: " + employer.getUsername() + ", address: " + getAddress() + " }";
     }
 }

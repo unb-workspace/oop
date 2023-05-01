@@ -20,6 +20,6 @@ public class Address {
         return street;
     }
     public String toString(){
-        return "{ State: " + getState() + ", City: " + getCity() + " Street: " + getStreet() + " }";
+        return "{ State: " + getState() + ", City: " + getCity() + ", Street: " + getStreet() + " }";
     }
 }
