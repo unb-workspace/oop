@@ -16,9 +16,9 @@ public class Main {
         Address endereco2 = new Address("Espirito Santo", "São Francisco", "Caldeirão Furado");
         Address endereco3 = new Address("Minas Gerais", "Montes Claros", "20");
 
-        Company empresa = new Company(15, empregador, "ehPow", "Tecnologia", "emprego@ehpow.com", endereco );
-        Company empresa2 = new Company(21, empregador2, "tuite", "Tecnologia", "emprego@tuite.com", endereco2);
-        Company empresa3 = new Company(12, empregador3, "janelas", "Vidraçaria", "contato@janelas.com", endereco3);
+        Company empresa = new Company(15, empregador, "EhPow", "Tecnologia", "emprego@ehpow.com", endereco );
+        Company empresa2 = new Company(21, empregador2, "Tuite", "Tecnologia", "emprego@tuite.com", endereco2);
+        Company empresa3 = new Company(12, empregador3, "Janelas", "Vidraçaria", "contato@janelas.com", endereco3);
 
         empregador.setCompany(empresa);
         empregador2.setCompany(empresa2);

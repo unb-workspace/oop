@@ -31,9 +31,7 @@ public class Company {
         return ID;
     }
 
-    public User getEmployer() {
-        return employer;
-    }
+    public Employer getEmployer() { return employer; }
 
     public String getName() {
         return name;
@@ -46,8 +44,13 @@ public class Company {
     public String getEmail() {
         return email;
     }
+
     public Address getAddress() {
         return address;
+    }
+
+    public ArrayList<Job> getJobs() {
+        return jobs;
     }
 
     public void setName(String name) {
@@ -60,9 +63,6 @@ public class Company {
 
     public void setAddress(Address address) {
         this.address = address;
-    }
-    public ArrayList<Job> getJobs() {
-        return jobs;
     }
 
     public void addJob(Job job) {

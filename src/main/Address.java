@@ -29,7 +29,7 @@ public class Address {
         this.city = city;
     }
 
-    public void setStreet(String Street) {
+    public void setStreet(String street) {
         this.street = street;
     }
 
