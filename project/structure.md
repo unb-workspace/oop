@@ -6,7 +6,7 @@ O aplicativo oferece várias alternativas de emprego para a sua área profission
 
 - Nome da empresa
 - Àrea de ocupação da empresa
-- Endereço da empresa
+- Endereço da empresa (Estado, Cidade e Rua)
 - E-mail
 - Número de telefone
 
