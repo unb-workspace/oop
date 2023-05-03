@@ -9,7 +9,6 @@ public class Company {
     private Address address;
     private ArrayList<Job> jobs;
 
-
     public Company(int ID, Employer employer, String name, String occupation_area, String email) {
         this.ID = ID;
         this.employer = employer;
@@ -27,7 +26,6 @@ public class Company {
         this.email = email;
         this.address = address;
     }
-
 
     public int getId() {
         return ID;
