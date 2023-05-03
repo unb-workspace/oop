@@ -1,7 +1,7 @@
 public class Address {
-    private final String state;
-    private final String city;
-    private final String street;
+    private String state;
+    private String city;
+    private String street;
     
     public Address(String state, String city, String street) {
         this.state = state;
@@ -20,6 +20,19 @@ public class Address {
     public String getStreet() {
         return street;
     }
+
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public void setStreet(String Street) {
+        this.street = street;
+    }
+
     public String toString(){
         return "{ State: " + getState() + ", City: " + getCity() + ", Street: " + getStreet() + " }";
     }

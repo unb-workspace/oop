@@ -3,9 +3,9 @@ import java.util.ArrayList;
 public class Company {
     private final int ID;
     private String name;
-    private final String occupation_area;
+    private String occupation_area;
     private String email;
-    private final Employer employer;
+    private Employer employer;
     private Address address;
     private ArrayList<Job> jobs;
 
@@ -71,6 +71,14 @@ public class Company {
 
     public void removeJob(Job job) {
         jobs.remove(job);
+    }
+
+    public void setOccupationArea(String occupation_area) {
+        this.occupation_area = occupation_area;
+    }
+
+    public void setEmployer(Employer employer) {
+        this.employer = employer;
     }
 
     public String toString() {
