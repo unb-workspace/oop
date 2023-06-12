@@ -15,12 +15,6 @@ public class Employee extends User {
         habilities.add(hability);
     }
 
-    public void removeHability(String hability) {
-        if(hasHability(hability)) {
-            habilities.remove(hability);
-        }
-    }
-
     public boolean hasHability(String hability) {
         return habilities.contains(hability);
     }

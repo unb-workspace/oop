@@ -5,22 +5,19 @@ public class Company {
     private String name;
     private String occupation_area;
     private String email;
-    private Employer employer;
     private Address address;
     private ArrayList<Job> jobs;
 
-    public Company(int ID, Employer employer, String name, String occupation_area, String email) {
+    public Company(int ID, String name, String occupation_area, String email) {
         this.ID = ID;
-        this.employer = employer;
         this.name = name;
         this.occupation_area = occupation_area;
         this.email = email;
     }
 
-    public Company(int ID, Employer employer, String name, String occupation_area, String email, Address address) {
+    public Company(int ID, String name, String occupation_area, String email, Address address) {
         this.jobs = new ArrayList<>();
         this.ID = ID;
-        this.employer = employer;
         this.name = name;
         this.occupation_area = occupation_area;
         this.email = email;
@@ -30,8 +27,6 @@ public class Company {
     public int getId() {
         return ID;
     }
-
-    public Employer getEmployer() { return employer; }
 
     public String getName() {
         return name;
@@ -77,11 +72,7 @@ public class Company {
         this.occupation_area = occupation_area;
     }
 
-    public void setEmployer(Employer employer) {
-        this.employer = employer;
-    }
-
     public String toString() {
-        return "{ name: " + getName() + ", email: " + getEmail() + ", occupation_area: " + getOccupationArea() + ", id: " + getId() + ", owner: " + employer.getUsername() + ", address: " + getAddress() + " }";
+        return "{ name: " + getName() + ", email: " + getEmail() + ", occupation_area: " + getOccupationArea() + ", id: " + getId() + ", address: " + getAddress() + " }";
     }
 }
