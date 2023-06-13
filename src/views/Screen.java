@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 
 public class Screen extends JFrame {
-    private final JPanel header = new JPanel();
+    protected final JPanel header = new JPanel();
     Color headerColor = new Color(75, 44, 44);
     Color backgroundColor = new Color(217, 217, 217);
     ImageIcon logo = new ImageIcon("src/resources/images/linked_out_logo.png");
