@@ -48,8 +48,11 @@ public class Screen extends JFrame {
     }
 
     public void createLogoButton() {
+        Insets insets = new Insets(10, 10, 10, 10);
+
         GridBagConstraints constraint = new GridBagConstraints();
         constraint.anchor = GridBagConstraints.EAST;
+        constraint.insets = insets;
 
         JButton button = new JButton(logo);
         button.setBackground(this.backgroundColor);
