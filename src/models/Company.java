@@ -1,31 +1,25 @@
 import java.util.ArrayList;
 
 public class Company {
-    private final int ID;
     private String name;
     private String occupation_area;
     private String email;
     private Address address;
     private ArrayList<Job> jobs;
+    private String representant;
 
-    public Company(int ID, String name, String occupation_area, String email) {
-        this.ID = ID;
+    public Company(String name, String occupation_area, String email) {
         this.name = name;
         this.occupation_area = occupation_area;
         this.email = email;
     }
 
-    public Company(int ID, String name, String occupation_area, String email, Address address) {
+    public Company(String name, String occupation_area, String email, Address address) {
         this.jobs = new ArrayList<>();
-        this.ID = ID;
         this.name = name;
         this.occupation_area = occupation_area;
         this.email = email;
         this.address = address;
-    }
-
-    public int getId() {
-        return ID;
     }
 
     public String getName() {
@@ -42,6 +36,13 @@ public class Company {
 
     public Address getAddress() {
         return address;
+    }
+    public String getRepresentant() {
+        return representant;
+    }
+
+    public void setRepresentant(String username) {
+        representant = username;
     }
 
     public ArrayList<Job> getJobs() {
@@ -70,9 +71,5 @@ public class Company {
 
     public void setOccupationArea(String occupation_area) {
         this.occupation_area = occupation_area;
-    }
-
-    public String toString() {
-        return "{ name: " + getName() + ", email: " + getEmail() + ", occupation_area: " + getOccupationArea() + ", id: " + getId() + ", address: " + getAddress() + " }";
     }
 }
