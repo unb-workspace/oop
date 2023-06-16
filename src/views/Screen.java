@@ -47,7 +47,7 @@ public class Screen extends JFrame {
         header.add(text, constraint);
     }
 
-    public void createLogoButton() {
+    private void createLogoButton() {
         GridBagConstraints constraint = new GridBagConstraints();
         constraint.anchor = GridBagConstraints.EAST;
 
@@ -58,6 +58,9 @@ public class Screen extends JFrame {
         header.add(button, constraint);
     }
 
+    protected void displayWarning(String warning) {
+        JOptionPane.showMessageDialog(null, warning, "Aviso", JOptionPane.WARNING_MESSAGE);
+    }
     public void display() {
         this.setVisible(true);
     }
