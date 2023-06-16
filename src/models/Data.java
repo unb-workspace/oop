@@ -1,18 +1,21 @@
+import java.lang.reflect.Array;
 import java.util.ArrayList;
+import java.util.HashMap;
+
 public class Data {
-    private static final ArrayList<Company> companies = new ArrayList<Company>();
-    private static final ArrayList<Employee> employees = new ArrayList<Employee>();
-    private static final ArrayList<Employer> employers = new ArrayList<Employer>();
+    private static ArrayList<Company> companies = new ArrayList<>();
+    private static HashMap<String, Employer> employers = new HashMap<>();
+    private static HashMap<String, Employee> employee = new HashMap<>();
 
     public static ArrayList<Company> getCompanies() {
         return companies;
     }
 
-    public static ArrayList<Employee> getEmployees() {
-        return employees;
+    public static HashMap<String, Employer> getEmployers() {
+        return employers;
     }
 
-    public static ArrayList<Employer> getEmployers() {
-        return employers;
+    public static HashMap<String, Employee> getEmployees() {
+        return employee;
     }
 }
