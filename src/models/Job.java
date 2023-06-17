@@ -1,18 +1,24 @@
 import java.util.ArrayList;
 
 public class Job {
+	private String name;
     private int salary;
     private int workload;
     private String modality;
     private String occupation_area;
     private ArrayList<String> requirements;
 
-    public Job(int salary, int workload, String modality, String occupation_area) {
+    public Job(String name, int salary, int workload, String modality, String occupation_area) {
         this.requirements = new ArrayList<>();
         this.salary = salary;
         this.workload = workload;
         this.modality = modality;
         this.occupation_area = occupation_area;
+        this.name = name;
+    }
+    
+    public String getName() {
+    	return name;
     }
 
     public int getSalary() {
@@ -33,6 +39,10 @@ public class Job {
 
     public ArrayList<String> getRequirements() {
         return requirements;
+    }
+    
+    public void setName(String name) {
+    	this.name = name;
     }
 
     public void setSalary(int salary) {
