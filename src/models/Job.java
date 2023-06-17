@@ -70,6 +70,6 @@ public class Job {
     }
 
     public String toString() {
-        return "{ name: " + getName() + "requirements: " + getRequirements() + ", salary: " + getSalary() + ", workload: " + getWorkload() + ", modality: " + getModality() + ", occupation_area: " + getOccupationArea() + " }";
+        return "{ name: " + getName() + ", requirements: " + getRequirements() + ", salary: " + getSalary() + ", workload: " + getWorkload() + ", modality: " + getModality() + ", occupation_area: " + getOccupationArea() + " }";
     }
 }
