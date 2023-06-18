@@ -1,13 +1,15 @@
 import java.util.ArrayList;
 
 public class Job {
+    private String name;
     private int salary;
     private int workload;
     private String modality;
     private String occupation_area;
     private ArrayList<String> requirements;
 
-    public Job(int salary, int workload, String modality, String occupation_area) {
+    public Job(String name, int salary, int workload, String modality, String occupation_area) {
+        this.name = name;
         this.requirements = new ArrayList<>();
         this.salary = salary;
         this.workload = workload;
@@ -57,6 +59,14 @@ public class Job {
 
     public void removeRequirement(String requirement) {
         requirements.remove(requirement);
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public String toString() {
