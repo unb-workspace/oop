@@ -5,13 +5,20 @@ import javax.swing.*;
 import components.Button;
 import components.TextField;
 
-public class JobDetailsScreen extends Screen{
+public class JobDetailsAdmScreen extends Screen{
 	Font fontField = new Font("Arial", Font.BOLD, 15);
 	private final JPanel panel = new JPanel();
 	private final JPanel title = new JPanel();
 	private final JPanel content = new JPanel();
+	private final Button updateButton = new Button("Salvar");
+	private final Button deleteButton = new Button("Excluir");
+	private final TextField salaryField = new TextField();
+	private final TextField modalityField = new TextField();
+	private final TextField workloadField = new TextField();
+	private final TextField occupationAreaField = new TextField();
+	private final TextField requirementsField = new TextField();
 	
-	public JobDetailsScreen(Job job) {
+	public JobDetailsAdmScreen(Job job) {
 		super();
 		
 		this.panel.setLayout(new BoxLayout(this.panel, BoxLayout.Y_AXIS));
@@ -25,19 +32,33 @@ public class JobDetailsScreen extends Screen{
 		name.add(jobName);
 		
 		JPanel salary = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		salary.add(createTextLabel("Salário (em reais): " + job.getSalary()));
+		salary.add(createTextLabel("Salário (em reais): "));
+		salaryField.setText(Integer.toString(job.getSalary()));
+		salary.add(salaryField);
 		
 		JPanel modality = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		modality.add(createTextLabel("Modalidade: " + job.getModality()));
+		modality.add(createTextLabel("Modalidade: "));
+		modalityField.setText(job.getModality());
+		modality.add(modalityField);
 		
 		JPanel workload = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		workload.add(createTextLabel("Carga Horária: " + job.getWorkload()));
+		workload.add(createTextLabel("Carga Horária: "));
+		workloadField.setText(Integer.toString(job.getWorkload()));
+		workload.add(workloadField);
 		
 		JPanel occupationArea = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		occupationArea.add(createTextLabel("Área de Ocupação: " + job.getOccupationArea()));
+		occupationArea.add(createTextLabel("Área de Ocupação: "));
+		occupationAreaField.setText(job.getOccupationArea());
+		occupationArea.add(occupationAreaField);
 		
 		JPanel requirements = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		requirements.add(createTextLabel("Requisitos: " + String.join(", ", job.getRequirements())));
+		requirements.add(createTextLabel("Requisitos: "));
+		requirementsField.setText(String.join(", ", job.getRequirements()));
+		requirements.add(requirementsField);
+		
+		JPanel buttons = new JPanel();
+        buttons.add(this.updateButton);
+        buttons.add(this.deleteButton);
 
         this.title.add(name);
 
@@ -46,6 +67,7 @@ public class JobDetailsScreen extends Screen{
 		this.content.add(workload);
 		this.content.add(occupationArea);
 		this.content.add(requirements);		
+		this.content.add(buttons);
 		
 		this.panel.add(title);
 		this.panel.add(content);
@@ -66,7 +88,7 @@ public class JobDetailsScreen extends Screen{
     //    job.addRequirement("OOP");
     //    job.addRequirement("Java");
         
-	//	new JobDetailsScreen(job);
+	//	new JobDetailsAdmScreen(job);
 
 	//}
 
