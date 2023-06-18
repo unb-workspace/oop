@@ -10,7 +10,7 @@ public class JobDetailsScreen extends Screen{
 	Button updateButton = new Button("Editar");
 	Button deleteButton = new Button("Excluir");
 	
-	public JobDetailsScreen(Job job) {
+	public JobDetailsScreen(Job job, String type) {
 		super();
 		
 		this.panel.setLayout(new BoxLayout(this.panel, BoxLayout.Y_AXIS));
@@ -44,7 +44,9 @@ public class JobDetailsScreen extends Screen{
 		this.panel.add(occupationArea);
 		this.panel.add(requirements);
 		
+		if (type == "employer") {
 		this.panel.add(buttons);
+		}
 		
 		this.add(panel);
 		this.display();
@@ -63,7 +65,7 @@ public class JobDetailsScreen extends Screen{
         job.addRequirement("OOP");
         job.addRequirement("Java");
         
-		new JobDetailsScreen(job);
+		new JobDetailsScreen(job, "employee");
 
 	}
 
