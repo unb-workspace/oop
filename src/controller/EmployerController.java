@@ -24,4 +24,7 @@ public class EmployerController {
         return employers.get(username);
     }
 
+    public HashMap<String, Employer> getEmployers() {
+        return employers;
+    }
 }

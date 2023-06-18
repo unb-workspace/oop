@@ -6,6 +6,9 @@ public class CreateCompanyScreen extends Screen {
     Font fontField = new Font("Arial", Font.BOLD, 15);
     Dimension textFieldSize = new Dimension(200, 30);
     Color colorField = new Color(199, 194, 194);
+
+    private final CompanyController companyController = new CompanyController();
+    private final EmployerController employerController = new EmployerController();
     private final JPanel panel = new JPanel();
     private final JTextField nameField = new JTextField();
     private final JTextField emailField = new JTextField();
@@ -13,8 +16,8 @@ public class CreateCompanyScreen extends Screen {
     private final JTextField cityField = new JTextField();
     private final JTextField streetField = new JTextField();
     private final JTextField occupationAreaField = new JTextField();
-    private final JComboBox ownerField = new JComboBox(Data.getEmployers().keySet().toArray());
     private final JButton createButton = new JButton("Criar");
+    private final JComboBox<Object> ownerField = new JComboBox<Object>(employerController.getEmployers().keySet().toArray());
 
     public CreateCompanyScreen() {
         super("Criar Empresa");
@@ -117,9 +120,6 @@ public class CreateCompanyScreen extends Screen {
             return;
         }
 
-        CompanyController companyController = new CompanyController();
-        EmployerController employerController = new EmployerController();
-
         if(employerController.hasCompany(owner)) {
             this.displayWarning("O usuario selecionado ja possui uma empresa!");
             return;
@@ -141,22 +141,21 @@ public class CreateCompanyScreen extends Screen {
         this.occupationAreaField.setText("");
     }
 
-//    public static void main(String args[]) {
-//        Employer e1 = new Employer("thegm445", "445", "Gabriel Moura");
-//        Employer e2 = new Employer("caio-felipee", "12345", "Caio Felipe");
-//        Employer e3 = new Employer("thuzin-gameplays", "3243", "Arthur");
-//        Employer e4 = new Employer("anacompetidora12", "4jfd", "Ana");
-//
-//        Company company = new Company("Ifood", "Comida", "fodase@gmail.com");
-//        company.setRepresentant(e1.getUsername());
-//        e1.setCompany(company);
-//
-//        Data.getEmployers().put(e1.username, e1);
-//        Data.getEmployers().put(e2.username, e2);
-//        Data.getEmployers().put(e3.username, e3);
-//        Data.getEmployers().put(e4.username, e4);
-//
-//        new CreateCompanyScreen();
-//
-//    }
+    // public static void main(String args[]) {
+    //     Employer e1 = new Employer("thegm445", "445", "Gabriel Moura");
+    //     Employer e2 = new Employer("caio-felipee", "12345", "Caio Felipe");
+    //     Employer e3 = new Employer("thuzin-gameplays", "3243", "Arthur");
+    //     Employer e4 = new Employer("anacompetidora12", "4jfd", "Ana");
+
+    //     Company company = new Company("Ifood", "Comida", "fodase@gmail.com");
+    //     company.setRepresentant(e1.getUsername());
+    //     e1.setCompany(company);
+
+    //     Data.getEmployers().put(e1.username, e1);
+    //     Data.getEmployers().put(e2.username, e2);
+    //     Data.getEmployers().put(e3.username, e3);
+    //     Data.getEmployers().put(e4.username, e4);
+
+    //     new CreateCompanyScreen();
+    // }
 }
