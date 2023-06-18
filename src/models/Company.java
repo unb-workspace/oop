@@ -5,8 +5,8 @@ public class Company {
     private String occupation_area;
     private String email;
     private Address address;
-    private ArrayList<Job> jobs;
     private String representant;
+    private final ArrayList<Job> jobs = new ArrayList<>();
 
     public Company(String name, String occupation_area, String email) {
         this.name = name;
@@ -15,7 +15,6 @@ public class Company {
     }
 
     public Company(String name, String occupation_area, String email, Address address) {
-        this.jobs = new ArrayList<>();
         this.name = name;
         this.occupation_area = occupation_area;
         this.email = email;
@@ -71,5 +70,9 @@ public class Company {
 
     public void setOccupationArea(String occupation_area) {
         this.occupation_area = occupation_area;
+    }
+
+    public String toString() {
+        return "{ name: " + getName() + ", email: " + getEmail() + ", occupation_area: " + getOccupationArea() + ", address: " + getAddress() + " }";
     }
 }
