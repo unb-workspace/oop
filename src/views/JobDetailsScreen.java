@@ -7,6 +7,7 @@ import components.Button;
 public class JobDetailsScreen extends Screen{
 	Font fontField = new Font("Arial", Font.BOLD, 15);
 	private final JPanel panel = new JPanel();
+	Button returnButton = new Button("Voltar");
 	Button updateButton = new Button("Editar");
 	Button deleteButton = new Button("Excluir");
 	
@@ -34,8 +35,12 @@ public class JobDetailsScreen extends Screen{
 		requirements.add(createTextLabel("Requisitos: " + job.getRequirements()));
 		
 		JPanel buttons = new JPanel();
+		buttons.add(this.returnButton);
+		
+		if (type == "employer") {
         buttons.add(this.updateButton);
         buttons.add(this.deleteButton);
+		}
 
         this.panel.add(name);
 		this.panel.add(salary);
@@ -44,9 +49,7 @@ public class JobDetailsScreen extends Screen{
 		this.panel.add(occupationArea);
 		this.panel.add(requirements);
 		
-		if (type == "employer") {
 		this.panel.add(buttons);
-		}
 		
 		this.add(panel);
 		this.display();
@@ -65,7 +68,7 @@ public class JobDetailsScreen extends Screen{
         job.addRequirement("OOP");
         job.addRequirement("Java");
         
-		new JobDetailsScreen(job, "employee");
+		new JobDetailsScreen(job, "employer");
 
 	}
 
