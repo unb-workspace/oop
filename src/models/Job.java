@@ -40,10 +40,6 @@ public class Job {
     public ArrayList<String> getRequirements() {
         return requirements;
     }
-    
-    public void setName(String name) {
-    	this.name = name;
-    }
 
     public void setSalary(int salary) {
         this.salary = salary;
@@ -67,10 +63,6 @@ public class Job {
 
     public void removeRequirement(String requirement) {
         requirements.remove(requirement);
-    }
-
-    public String getName() {
-        return name;
     }
 
     public void setName(String name) {
