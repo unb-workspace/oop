@@ -5,7 +5,7 @@ import javax.swing.*;
 import components.Button;
 import components.TextField;
 
-public class JobDetailsAdmScreen extends Screen{
+public class JobDetailsAdm extends Screen{
 	Font fontField = new Font("Arial", Font.BOLD, 15);
 	private final JPanel panel = new JPanel();
 	private final JPanel title = new JPanel();
@@ -18,7 +18,7 @@ public class JobDetailsAdmScreen extends Screen{
 	private final TextField occupationAreaField = new TextField();
 	private final TextField requirementsField = new TextField();
 	
-	public JobDetailsAdmScreen(Job job) {
+	public JobDetailsAdm(Job job) {
 		super();
 		
 		this.panel.setLayout(new BoxLayout(this.panel, BoxLayout.Y_AXIS));

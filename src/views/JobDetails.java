@@ -2,16 +2,13 @@ import java.awt.*;
 
 import javax.swing.*;
 
-import components.Button;
-import components.TextField;
-
-public class JobDetailsScreen extends Screen{
+public class JobDetails extends Screen{
 	Font fontField = new Font("Arial", Font.BOLD, 15);
 	private final JPanel panel = new JPanel();
 	private final JPanel title = new JPanel();
 	private final JPanel content = new JPanel();
 	
-	public JobDetailsScreen(Job job) {
+	public JobDetails(Job job) {
 		super();
 		
 		this.panel.setLayout(new BoxLayout(this.panel, BoxLayout.Y_AXIS));
