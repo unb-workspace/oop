@@ -3,10 +3,10 @@ import java.awt.*;
 
 public class Screen extends JFrame {
     protected final JPanel header = new JPanel();
-    
     ImageIcon logo = new ImageIcon("src/resources/images/linked_out_logo.png");
     Color headerColor = new Color(75, 44, 44);
     Color backgroundColor = new Color(217, 217, 217);
+    Insets insets = new Insets(7, 7, 7, 7);
 
     public Screen(String title) {
         super("LinkedOut - " + title);
@@ -18,6 +18,7 @@ public class Screen extends JFrame {
     public Screen() {
         super("LinkedOut");
         this.setDefaultFrame();
+        this.setHeaderText("");
         this.createLogoButton();
     }
 
@@ -40,6 +41,8 @@ public class Screen extends JFrame {
         constraint.anchor = GridBagConstraints.CENTER;
         constraint.weightx = 1.0;
         constraint.weighty = 1.0;
+        constraint.gridx = 5;
+        constraint.insets = insets;
 
         JLabel text = new JLabel(title);
         text.setFont(new Font("Regular", Font.BOLD, 30));
@@ -51,6 +54,7 @@ public class Screen extends JFrame {
     private void createLogoButton() {
         GridBagConstraints constraint = new GridBagConstraints();
         constraint.anchor = GridBagConstraints.EAST;
+        constraint.insets = insets;
 
         JButton button = new JButton(logo);
         button.setBackground(this.backgroundColor);

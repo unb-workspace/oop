@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class ChooseEmplyerEmployee extends Screen{
+public class HomeScreen extends Screen{
     Font fontField = new Font("Arial",Font.BOLD,15 );
     Color colorField = new Color(199, 194, 194);
     Dimension textFieldSize = new Dimension(200, 30);
@@ -10,7 +10,7 @@ public class ChooseEmplyerEmployee extends Screen{
     private final JPanel panel = new JPanel();
     private final JLabel pageText = new JLabel();
 
-    public ChooseEmplyerEmployee() {
+    public HomeScreen() {
         super("LINKEDOUT");
         this.panel.setLayout(new BoxLayout(this.panel, BoxLayout.Y_AXIS));
 
@@ -56,7 +56,7 @@ public class ChooseEmplyerEmployee extends Screen{
         return label;
     }
 //    public static void main(String args[]){
-//        new ChooseEmplyerEmployee();
+//        new HomeScreen();
 //    }
 
 
