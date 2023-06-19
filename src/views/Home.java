@@ -1,7 +1,7 @@
 import javax.swing.*;
 import java.awt.*;
 
-public class HomeScreen extends Screen{
+public class Home extends Screen {
     Font fontField = new Font("Arial",Font.BOLD,15 );
     Color colorField = new Color(199, 194, 194);
     Dimension textFieldSize = new Dimension(200, 30);
@@ -10,7 +10,7 @@ public class HomeScreen extends Screen{
     private final JPanel panel = new JPanel();
     private final JLabel pageText = new JLabel();
 
-    public HomeScreen() {
+    public Home() {
         super("LINKEDOUT");
         this.panel.setLayout(new BoxLayout(this.panel, BoxLayout.Y_AXIS));
 

@@ -2,7 +2,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
-public class CreateCompanyScreen extends Screen {
+public class CreateCompany extends Screen {
     Font fontField = new Font("Arial", Font.BOLD, 15);
     Dimension textFieldSize = new Dimension(200, 30);
     Color colorField = new Color(199, 194, 194);
@@ -19,7 +19,7 @@ public class CreateCompanyScreen extends Screen {
     private final JButton createButton = new JButton("Criar");
     private final JComboBox<Object> ownerField = new JComboBox<Object>(employerController.getEmployers().keySet().toArray());
 
-    public CreateCompanyScreen() {
+    public CreateCompany() {
         super("Criar Empresa");
 
         this.panel.setLayout(new BoxLayout(this.panel, BoxLayout.Y_AXIS));
@@ -141,21 +141,21 @@ public class CreateCompanyScreen extends Screen {
         this.occupationAreaField.setText("");
     }
 
-    // public static void main(String args[]) {
-    //     Employer e1 = new Employer("thegm445", "445", "Gabriel Moura");
-    //     Employer e2 = new Employer("caio-felipee", "12345", "Caio Felipe");
-    //     Employer e3 = new Employer("thuzin-gameplays", "3243", "Arthur");
-    //     Employer e4 = new Employer("anacompetidora12", "4jfd", "Ana");
-
-    //     Company company = new Company("Ifood", "Comida", "fodase@gmail.com");
-    //     company.setRepresentant(e1.getUsername());
-    //     e1.setCompany(company);
-
-    //     Data.getEmployers().put(e1.username, e1);
-    //     Data.getEmployers().put(e2.username, e2);
-    //     Data.getEmployers().put(e3.username, e3);
-    //     Data.getEmployers().put(e4.username, e4);
-
-    //     new CreateCompanyScreen();
-    // }
+//     public static void main(String args[]) {
+//         Employer e1 = new Employer("thegm445", "445", "Gabriel Moura");
+//         Employer e2 = new Employer("caio-felipee", "12345", "Caio Felipe");
+//         Employer e3 = new Employer("thuzin-gameplays", "3243", "Arthur");
+//         Employer e4 = new Employer("anacompetidora12", "4jfd", "Ana");
+//
+//         Company company = new Company("Ifood", "Comida", "fodase@gmail.com");
+//         company.setRepresentant(e1.getUsername());
+//         e1.setCompany(company);
+//
+//         Data.getEmployers().put(e1.username, e1);
+//         Data.getEmployers().put(e2.username, e2);
+//         Data.getEmployers().put(e3.username, e3);
+//         Data.getEmployers().put(e4.username, e4);
+//
+//         new CreateCompanyScreen();
+//     }
 }
