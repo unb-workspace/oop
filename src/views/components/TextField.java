@@ -5,7 +5,7 @@ import java.awt.*;
 import javax.swing.BorderFactory;
 import javax.swing.JTextField;
 
-public class TextField extends JTextField{
+public class TextField extends JTextField {
 	
 	public TextField() {
 		super();

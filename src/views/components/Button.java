@@ -7,7 +7,7 @@ import java.awt.Font;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 
-public class Button extends JButton{
+public class Button extends JButton {
 	public Button(String text) {
 		super(text);
 		this.setBackground(new Color(75, 44, 44));
