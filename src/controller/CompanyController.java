@@ -27,4 +27,16 @@ public class CompanyController {
 
         return owners;
     }
+
+    public ArrayList<String> getCompanyRegions() {
+        ArrayList<String> regions = new ArrayList<>();
+
+        for(Company company : companies) {
+            if(!regions.contains(company.getAddress().getState())) {
+                regions.add(company.getAddress().getState());
+            }
+        }
+
+        return regions;
+    }
 }
