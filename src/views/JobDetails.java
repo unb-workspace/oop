@@ -1,9 +1,9 @@
 import java.awt.*;
 
 import javax.swing.*;
+import components.TextLabel;
 
 public class JobDetails extends Screen{
-	Font fontField = new Font("Arial", Font.BOLD, 15);
 	private final JPanel panel = new JPanel();
 	private final JPanel title = new JPanel();
 	private final JPanel content = new JPanel();
@@ -16,25 +16,26 @@ public class JobDetails extends Screen{
 		
 		JPanel name = new JPanel(new FlowLayout(FlowLayout.CENTER));
 		JLabel jobName = new JLabel(job.getName());
-		name.setBackground(new Color(75, 44, 44));
+
 		jobName.setFont(new Font("Regular", Font.BOLD, 20));
 		jobName.setForeground(Color.WHITE);
+		name.setBackground(new Color(75, 44, 44));
 		name.add(jobName);
 		
 		JPanel salary = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		salary.add(createTextLabel("Salário (em reais): " + job.getSalary()));
+		salary.add(new TextLabel("Salário (em reais): " + job.getSalary()));
 		
 		JPanel modality = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		modality.add(createTextLabel("Modalidade: " + job.getModality()));
+		modality.add(new TextLabel("Modalidade: " + job.getModality()));
 		
 		JPanel workload = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		workload.add(createTextLabel("Carga Horária: " + job.getWorkload()));
+		workload.add(new TextLabel("Carga Horária: " + job.getWorkload()));
 		
 		JPanel occupationArea = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		occupationArea.add(createTextLabel("Área de Ocupação: " + job.getOccupationArea()));
+		occupationArea.add(new TextLabel("Área de Ocupação: " + job.getOccupationArea()));
 		
 		JPanel requirements = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		requirements.add(createTextLabel("Requisitos: " + String.join(", ", job.getRequirements())));
+		requirements.add(new TextLabel("Requisitos: " + String.join(", ", job.getRequirements())));
 
         this.title.add(name);
 
@@ -49,13 +50,6 @@ public class JobDetails extends Screen{
 		this.add(panel);
 		this.display();
 	}
-	
-	private JLabel createTextLabel(String text) {
-        JLabel label = new JLabel(text);
-        label.setFont(this.fontField);
-
-        return label;
-    }
 
 	//public static void main(String[] args) {
 	//	Job job = new Job("Desenvolvedor Front-end", 2100, 8, "Remoto", "Tecnologia" );

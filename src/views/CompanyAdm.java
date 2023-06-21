@@ -4,6 +4,7 @@ import javax.swing.*;
 
 import components.Button;
 import components.TextField;
+import components.TextLabel;
 
 public class CompanyAdm extends Screen {
 	Font fontField = new Font("Arial", Font.BOLD, 15);
@@ -27,35 +28,35 @@ public class CompanyAdm extends Screen {
 		JPanel name = new JPanel(new FlowLayout(FlowLayout.CENTER));
 		JLabel companyName = new JLabel(company.getName());
 		name.setBackground(new Color(75, 44, 44));
+		name.add(companyName);
 		companyName.setFont(new Font("Regular", Font.BOLD, 20));
 		companyName.setForeground(Color.WHITE);
-		name.add(companyName);
 		
 		JPanel emailPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		emailPanel.add(createTextLabel("Email: "));
+		emailPanel.add(new TextLabel("Email: "));
 		emailField.setText(company.getEmail());
 		emailPanel.add(emailField);
 		
 		JPanel statePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		statePanel.add(createTextLabel("Estado: "));
+		statePanel.add(new TextLabel("Estado: "));
 		stateField.setText((company.getAddress()).getState());
 		statePanel.add(stateField);
 		
 		JPanel cityPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		cityPanel.add(createTextLabel("Cidade: "));
+		cityPanel.add(new TextLabel("Cidade: "));
 		cityField.setText((company.getAddress()).getCity());
 		cityPanel.add(cityField);
 		
 		JPanel streetPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		streetPanel.add(createTextLabel("Rua: "));
+		streetPanel.add(new TextLabel("Rua: "));
 		streetField.setText((company.getAddress()).getStreet());
 		streetPanel.add(streetField);
 		
 		JPanel ownerPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		ownerPanel.add(createTextLabel("Dono: "));
+		ownerPanel.add(new TextLabel("Dono: "));
 		
 		JPanel occupationAreaPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		occupationAreaPanel.add(createTextLabel("Área de ocupação: "));
+		occupationAreaPanel.add(new TextLabel("Área de ocupação: "));
 		occupationAreaField.setText(company.getOccupationArea());
 		occupationAreaPanel.add(occupationAreaField);
 		
@@ -78,13 +79,6 @@ public class CompanyAdm extends Screen {
 		this.add(panel);
 		this.display();
 	}
-	
-	private JLabel createTextLabel(String text) {
-        JLabel label = new JLabel(text);
-        label.setFont(this.fontField);
-
-        return label;
-    }
 
 	//public static void main(String[] args) {
 	//	Address endereco = new Address("Bahia", "California", "Pertino");

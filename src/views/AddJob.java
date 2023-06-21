@@ -2,8 +2,11 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
+import components.Button;
+import components.TextField;
+import components.TextLabel;
+
 public class AddJob extends Screen {
-    Font fontField = new Font("Arial", Font.BOLD, 15);
     Dimension textFieldSize = new Dimension(200, 30);
     Color colorField = new Color(199, 194, 194);
 
@@ -11,12 +14,12 @@ public class AddJob extends Screen {
     private final JobController jobController = new JobController();
     private final EmployerController employerController = new EmployerController();
     private final JPanel panel = new JPanel();
-    private final JTextField nameField = new JTextField();
-    private final JTextField occupationAreaField = new JTextField();
-    private final JTextField salaryField = new JTextField();
-    private final JTextField workloadField = new JTextField();
-    private final JTextField requirementsField = new JTextField();
-    private final JButton addButton = new JButton("Criar");
+    private final TextField nameField = new TextField();
+    private final TextField occupationAreaField = new TextField();
+    private final TextField salaryField = new TextField();
+    private final TextField workloadField = new TextField();
+    private final TextField requirementsField = new TextField();
+    private final Button addButton = new Button("Criar");
     private final JComboBox<String> modalityField = new JComboBox<String>(JobController.getModalities());
     private final JComboBox<Object> companyField = new JComboBox<Object>(companyController.getCompanyOwners().toArray());
 
@@ -24,66 +27,45 @@ public class AddJob extends Screen {
         super("Adicionar Vaga");
 
         this.panel.setLayout(new BoxLayout(this.panel, BoxLayout.Y_AXIS));
+        this.panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
-        this.nameField.setPreferredSize(this.textFieldSize);
-        this.occupationAreaField.setPreferredSize(this.textFieldSize);
-        this.salaryField.setPreferredSize(this.textFieldSize);
         this.modalityField.setPreferredSize(this.textFieldSize);
-        this.workloadField.setPreferredSize(this.textFieldSize);
-        this.requirementsField.setPreferredSize(this.textFieldSize);
-        this.companyField.setPreferredSize(new Dimension(300, 30));
-
-        this.nameField.setBackground(colorField);
-        this.occupationAreaField.setBackground(colorField);
-        this.salaryField.setBackground(colorField);
         this.modalityField.setBackground(colorField);
-        this.workloadField.setBackground(colorField);
-        this.requirementsField.setBackground(colorField);
-        this.companyField.setBackground(colorField);
-        this.addButton.setBackground(this.headerColor);
-
-        this.nameField.setBorder(BorderFactory.createEmptyBorder());
-        this.occupationAreaField.setBorder(BorderFactory.createEmptyBorder());
-        this.salaryField.setBorder(BorderFactory.createEmptyBorder());
         this.modalityField.setBorder(BorderFactory.createEmptyBorder());
-        this.workloadField.setBorder(BorderFactory.createEmptyBorder());
-        this.requirementsField.setBorder(BorderFactory.createEmptyBorder());
+
+        this.companyField.setPreferredSize(new Dimension(300, 30));
+        this.companyField.setBackground(colorField);
         this.companyField.setBorder(BorderFactory.createEmptyBorder());
-        this.addButton.setBorder(BorderFactory.createEmptyBorder());
 
         JPanel namePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        namePanel.add(createTextLabel("*Nome:"));
+        namePanel.add(new TextLabel("*Nome:"));
         namePanel.add(this.nameField);
 
         JPanel occupationAreaPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        occupationAreaPanel.add(createTextLabel("*Area de Ocupacao:"));
+        occupationAreaPanel.add(new TextLabel("*Area de Ocupacao:"));
         occupationAreaPanel.add(this.occupationAreaField);
 
         JPanel salaryPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        salaryPanel.add(createTextLabel("*Salario (em reais):"));
+        salaryPanel.add(new TextLabel("*Salario (em reais):"));
         salaryPanel.add(this.salaryField);
 
         JPanel modalityPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        modalityPanel.add(createTextLabel("*Modalidade:"));
+        modalityPanel.add(new TextLabel("*Modalidade:"));
         modalityPanel.add(this.modalityField);
 
         JPanel workloadPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        workloadPanel.add(createTextLabel("*Carga horaria semanal (em horas):"));
+        workloadPanel.add(new TextLabel("*Carga horaria semanal (em horas):"));
         workloadPanel.add(this.workloadField);
 
         JPanel requirementsPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        requirementsPanel.add(createTextLabel("Requerimentos (separe por virgula):"));
+        requirementsPanel.add(new TextLabel("Requerimentos (separe por virgula):"));
         requirementsPanel.add(this.requirementsField);
 
         JPanel companyPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        companyPanel.add(createTextLabel("*Empresa:"));
+        companyPanel.add(new TextLabel("*Empresa:"));
         companyPanel.add(this.companyField);
 
         JPanel buttonPanel = new JPanel();
-        this.addButton.setForeground(this.backgroundColor);
-        this.addButton.setFont(new Font("Arial", Font.BOLD, 17));
-        this.addButton.setBorder(BorderFactory.createEmptyBorder());
-        this.addButton.setPreferredSize(new Dimension(80, 30));
         this.addButton.addActionListener(this::addJob);
         buttonPanel.add(this.addButton);
 
@@ -98,13 +80,6 @@ public class AddJob extends Screen {
 
         this.add(panel);
         this.display();
-    }
-
-    private JLabel createTextLabel(String text) {
-        JLabel label = new JLabel(text);
-        label.setFont(this.fontField);
-
-        return label;
     }
 
     private void addJob(ActionEvent action) {

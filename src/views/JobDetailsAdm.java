@@ -4,9 +4,9 @@ import javax.swing.*;
 
 import components.Button;
 import components.TextField;
+import components.TextLabel;
 
 public class JobDetailsAdm extends Screen{
-	Font fontField = new Font("Arial", Font.BOLD, 15);
 	private final JPanel panel = new JPanel();
 	private final JPanel title = new JPanel();
 	private final JPanel content = new JPanel();
@@ -32,27 +32,27 @@ public class JobDetailsAdm extends Screen{
 		name.add(jobName);
 		
 		JPanel salary = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		salary.add(createTextLabel("Salário (em reais): "));
+		salary.add(new TextLabel("Salário (em reais): "));
 		salaryField.setText(Integer.toString(job.getSalary()));
 		salary.add(salaryField);
 		
 		JPanel modality = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		modality.add(createTextLabel("Modalidade: "));
+		modality.add(new TextLabel("Modalidade: "));
 		modalityField.setText(job.getModality());
 		modality.add(modalityField);
 		
 		JPanel workload = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		workload.add(createTextLabel("Carga Horária: "));
+		workload.add(new TextLabel("Carga Horária: "));
 		workloadField.setText(Integer.toString(job.getWorkload()));
 		workload.add(workloadField);
 		
 		JPanel occupationArea = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		occupationArea.add(createTextLabel("Área de Ocupação: "));
+		occupationArea.add(new TextLabel("Área de Ocupação: "));
 		occupationAreaField.setText(job.getOccupationArea());
 		occupationArea.add(occupationAreaField);
 		
 		JPanel requirements = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		requirements.add(createTextLabel("Requisitos: "));
+		requirements.add(new TextLabel("Requisitos: "));
 		requirementsField.setText(String.join(", ", job.getRequirements()));
 		requirements.add(requirementsField);
 		
@@ -74,13 +74,6 @@ public class JobDetailsAdm extends Screen{
 		this.add(panel);
 		this.display();
 	}
-	
-	private JLabel createTextLabel(String text) {
-        JLabel label = new JLabel(text);
-        label.setFont(this.fontField);
-
-        return label;
-    }
 
 	//public static void main(String[] args) {
 	//	Job job = new Job("Desenvolvedor Front-end", 2100, 8, "Remoto", "Tecnologia" );

@@ -1,88 +1,64 @@
 import javax.swing.*;
+
+import components.TextField;
+import components.Button;
+import components.ComboBox;
+import components.TextLabel;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 
 public class CreateCompany extends Screen {
-    Font fontField = new Font("Arial", Font.BOLD, 15);
     Dimension textFieldSize = new Dimension(200, 30);
     Color colorField = new Color(199, 194, 194);
 
     private final CompanyController companyController = new CompanyController();
     private final EmployerController employerController = new EmployerController();
     private final JPanel panel = new JPanel();
-    private final JTextField nameField = new JTextField();
-    private final JTextField emailField = new JTextField();
-    private final JTextField stateField = new JTextField();
-    private final JTextField cityField = new JTextField();
-    private final JTextField streetField = new JTextField();
-    private final JTextField occupationAreaField = new JTextField();
-    private final JButton createButton = new JButton("Criar");
-    private final JComboBox<Object> ownerField = new JComboBox<Object>(employerController.getEmployers().keySet().toArray());
+    private final TextField nameField = new TextField();
+    private final TextField emailField = new TextField();
+    private final TextField stateField = new TextField();
+    private final TextField cityField = new TextField();
+    private final TextField streetField = new TextField();
+    private final TextField occupationAreaField = new TextField();
+    private final Button createButton = new Button("Criar");
+    private final ComboBox ownerField = new ComboBox(employerController.getEmployers().keySet().toArray());
 
     public CreateCompany() {
         super("Criar Empresa");
 
         this.panel.setLayout(new BoxLayout(this.panel, BoxLayout.Y_AXIS));
-
-        this.nameField.setPreferredSize(this.textFieldSize);
-        this.emailField.setPreferredSize(this.textFieldSize);
-        this.stateField.setPreferredSize(this.textFieldSize);
-        this.cityField.setPreferredSize(this.textFieldSize);
-        this.streetField.setPreferredSize(this.textFieldSize);
-        this.ownerField.setPreferredSize(this.textFieldSize);
-        this.occupationAreaField.setPreferredSize(this.textFieldSize);
-
-        this.nameField.setBackground(colorField);
-        this.emailField.setBackground(colorField);
-        this.stateField.setBackground(colorField);
-        this.cityField.setBackground(colorField);
-        this.streetField.setBackground(colorField);
-        this.ownerField.setBackground(colorField);
-        this.occupationAreaField.setBackground(colorField);
-        this.createButton.setBackground(this.headerColor);
-
-        this.nameField.setBorder(BorderFactory.createEmptyBorder());
-        this.emailField.setBorder(BorderFactory.createEmptyBorder());
-        this.stateField.setBorder(BorderFactory.createEmptyBorder());
-        this.cityField.setBorder(BorderFactory.createEmptyBorder());
-        this.streetField.setBorder(BorderFactory.createEmptyBorder());
-        this.ownerField.setBorder(BorderFactory.createEmptyBorder());
-        this.occupationAreaField.setBorder(BorderFactory.createEmptyBorder());
-        this.createButton.setBorder(BorderFactory.createEmptyBorder());
+        this.panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 
         JPanel namePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        namePanel.add(createTextLabel("Nome:"));
+        namePanel.add(new TextLabel("Nome:"));
         namePanel.add(this.nameField);
 
         JPanel emailPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        emailPanel.add(createTextLabel("E-mail:"));
+        emailPanel.add(new TextLabel("E-mail:"));
         emailPanel.add(this.emailField);
 
         JPanel statePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        statePanel.add(createTextLabel("Estado:"));
+        statePanel.add(new TextLabel("Estado:"));
         statePanel.add(this.stateField);
 
         JPanel cityPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        cityPanel.add(createTextLabel("Cidade:"));
+        cityPanel.add(new TextLabel("Cidade:"));
         cityPanel.add(this.cityField);
 
         JPanel streetPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        streetPanel.add(createTextLabel("Rua:"));
+        streetPanel.add(new TextLabel("Rua:"));
         streetPanel.add(this.streetField);
 
         JPanel occupationAreaPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        occupationAreaPanel.add(createTextLabel("Area de Ocupacao:"));
+        occupationAreaPanel.add(new TextLabel("Area de Ocupacao:"));
         occupationAreaPanel.add(this.occupationAreaField);
 
         JPanel ownerPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-        ownerPanel.add(createTextLabel("Representante:"));
+        ownerPanel.add(new TextLabel("Representante:"));
         ownerPanel.add(this.ownerField);
 
         JPanel buttonPanel = new JPanel();
-        this.createButton.setForeground(this.backgroundColor);
-        this.createButton.setFont(new Font("Arial", Font.BOLD, 17));
-        this.createButton.setBorder(BorderFactory.createEmptyBorder());
-        this.createButton.setPreferredSize(new Dimension(80, 30));
         this.createButton.addActionListener(this::createCompany);
         buttonPanel.add(this.createButton);
 
@@ -97,13 +73,6 @@ public class CreateCompany extends Screen {
 
         this.add(panel);
         this.display();
-    }
-
-    private JLabel createTextLabel(String text) {
-        JLabel label = new JLabel(text);
-        label.setFont(this.fontField);
-
-        return label;
     }
 
     private void createCompany(ActionEvent action) {
@@ -126,8 +95,8 @@ public class CreateCompany extends Screen {
         }
 
         Company company = companyController.createCompany(name, email, state, city, street, occupationArea, owner);
-        employerController.setCompany(owner, company);
 
+        employerController.setCompany(owner, company);
         this.displayWarning("Empresa criada com sucesso!");
         this.clearFields();
     }
@@ -141,21 +110,21 @@ public class CreateCompany extends Screen {
         this.occupationAreaField.setText("");
     }
 
-//     public static void main(String args[]) {
-//         Employer e1 = new Employer("thegm445", "445", "Gabriel Moura");
-//         Employer e2 = new Employer("caio-felipee", "12345", "Caio Felipe");
-//         Employer e3 = new Employer("thuzin-gameplays", "3243", "Arthur");
-//         Employer e4 = new Employer("anacompetidora12", "4jfd", "Ana");
-//
-//         Company company = new Company("Ifood", "Comida", "fodase@gmail.com");
-//         company.setRepresentant(e1.getUsername());
-//         e1.setCompany(company);
-//
-//         Data.getEmployers().put(e1.username, e1);
-//         Data.getEmployers().put(e2.username, e2);
-//         Data.getEmployers().put(e3.username, e3);
-//         Data.getEmployers().put(e4.username, e4);
-//
-//         new CreateCompanyScreen();
-//     }
+    //  public static void main(String args[]) {
+    //      Employer e1 = new Employer("thegm445", "445", "Gabriel Moura");
+    //      Employer e2 = new Employer("caio-felipee", "12345", "Caio Felipe");
+    //      Employer e3 = new Employer("thuzin-gameplays", "3243", "Arthur");
+    //      Employer e4 = new Employer("anacompetidora12", "4jfd", "Ana");
+
+    //      Company company = new Company("Ifood", "Comida", "fodase@gmail.com");
+    //      company.setRepresentant(e1.getUsername());
+    //      e1.setCompany(company);
+
+    //      Data.getEmployers().put(e1.username, e1);
+    //      Data.getEmployers().put(e2.username, e2);
+    //      Data.getEmployers().put(e3.username, e3);
+    //      Data.getEmployers().put(e4.username, e4);
+
+    //      new CreateCompany();
+    //  }
 }
