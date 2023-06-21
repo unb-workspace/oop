@@ -28,6 +28,7 @@ public class Screen extends JFrame {
         this.setLocationRelativeTo(null);
         this.setResizable(false);
         this.getContentPane().setBackground(this.backgroundColor);
+        this.setLayout(new BorderLayout());
 
         header.setBackground(this.headerColor);
         header.setPreferredSize(new Dimension(720, 100));
