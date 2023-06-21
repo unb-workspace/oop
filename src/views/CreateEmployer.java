@@ -1,5 +1,3 @@
-import org.w3c.dom.ls.LSOutput;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -90,7 +88,7 @@ public class CreateEmployer extends Screen{
             this.displayWarning("Preencha todos os campos");
             return;
         }
-        if(employerController.availableUser(username)){
+        if(employerController.isUserAvailable(username)){
             employerController.createEmployer(name,username,password,role);
             this.displayWarning("Usuário criado com sucesso!");
             this.clearFields();

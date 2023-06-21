@@ -87,7 +87,7 @@ public class CreateEmployee extends Screen{
             this.displayWarning("Preencha todos os campos");
             return;
         }
-        if(employeeController.availableUser(username)){
+        if(employeeController.isUserAvailable(username)){
             employeeController.createEmployee(name,username,password,scholarship);
             this.displayWarning("Empregado criado com sucesso");
             this.clearFields();
