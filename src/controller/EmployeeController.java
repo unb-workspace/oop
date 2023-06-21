@@ -2,22 +2,18 @@ import java.util.HashMap;
 
 public class EmployeeController {
     private HashMap<String, Employee> employees = Data.getEmployees();
-    public void createEmployee(String name, String user,String password,String scholarship_level){
-        Employee employee = new Employee(user,password,name,scholarship_level);
-        Data.setEmployees(employee);
+    public void createEmployee(String name, String user, String password, String scholarship_level){
+        Employee employee = new Employee(user, password, name, scholarship_level);
+        employees.put(user, employee);
     }
-    public Employee getEmployeeByUsername(String username){
-        if(!employees.containsKey(username))
-            return null;
+    public Employee getEmployeeByUsername(String username) {
         return employees.get(username);
     }
 
-    public boolean availableUser(String username){
-        Employee user = getEmployeeByUsername(username);
-        if (user == null){
-            return true;
-        }
-        return false;
+    public boolean isUserAvailable(String username) {
+        return this.getEmployeeByUsername(username) != null ? true : false;
     }
-    public HashMap<String, Employee> getEmployees(){return employees;}
+    public HashMap<String, Employee> getEmployees() {
+        return employees;
+    }
 }

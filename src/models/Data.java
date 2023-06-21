@@ -17,28 +17,4 @@ public class Data {
     public static HashMap<String, Employee> getEmployees() {
         return employees;
     }
-
-    public static boolean setEmployers(Employer employer){
-        String username = employer.getUsername();
-
-        if(employers.containsKey(username)){
-            return false;
-        }
-        else{
-            employers.put(username,employer);
-            return true;
-        }
-    }
-
-    public static boolean setEmployees(Employee employee){
-        String username = employee.getUsername();
-
-        if(employees.containsKey(username)){
-            return false;
-        }
-        else{
-            employees.put(username,employee);
-            return true;
-        }
-    }
 }

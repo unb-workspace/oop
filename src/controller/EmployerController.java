@@ -18,26 +18,17 @@ public class EmployerController {
     }
 
     public Employer getEmployerByUsername(String username) {
-        if(!employers.containsKey(username))
-            return null;
-
         return employers.get(username);
     }
-    public boolean availableUser(String username){
-        Employer user = getEmployerByUsername(username);
-        if(user == null){
-            return true;
-        }
-        return false;
-  }
+    public boolean isUserAvailable(String username) {
+        return this.getEmployerByUsername(username) != null ? true : false;
+    }
 
-
-
-
-    public void createEmployer(String name,String user,String password,String role){
+    public void createEmployer(String name,String user,String password,String role) {
         Employer employer = new Employer(user,password,name);
         employer.setRole(role);
-        Data.setEmployers(employer);
+
+        employers.put(user, employer);
     }
 
     public HashMap<String, Employer> getEmployers() {
