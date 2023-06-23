@@ -1,8 +1,9 @@
 import java.util.ArrayList;
 
 public class CompanyController {
+    public static String[] availableRegions = {"Acre", "Alagoas", "Amapá", "Amazonas", "Bahia", "Ceará", "Distrito Federal", "Espirito Santo", "Goiás", "Maranhão", "Mato Grosso do Sul", "Mato Grosso", "Minas Gerais", "Pará", "Paraíba", "Paraná", "Pernambuco", "Piauí", "Rio de Janeiro", "Rio Grande do Norte", "Rio Grande do Sul", "Rondônia", "Roraima", "Santa Catarina", "São Paulo", "Sergipe", "Tocantins"};
     private final ArrayList<Company> companies = Data.getCompanies();
-
+    
     public Company createCompany(String name, String email, String state, String city, String street, String occupationArea, String owner) {
         Company company = new Company(name, occupationArea, email);
         Address address = new Address(state, city, street);
