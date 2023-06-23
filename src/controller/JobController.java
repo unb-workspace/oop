@@ -26,34 +26,20 @@ public class JobController {
 
         for(Company company : companies) {
             for(Job job : company.getJobs()) {
-                jobList.add("Nome da vaga: " + job.getName()
-                + "\nNome da empresa: " + company.getName()
-                + "\nRepresentante: " + company.getRepresentant()
-                + "\nModalidade: " + job.getModality()
-                + "\nÁrea de Ocupação: " + job.getOccupationArea());
+                jobList.add(formatJobToHTML(company, job));
             }
         }
 
         return jobList;
     }
 
-    public ArrayList<String> filterJobsByCompany(String companyName, ArrayList<Company> companies) {
-        ArrayList<String> jobList = new ArrayList<>();
-
-        for(Company company : companies) {
-            if(!company.getName().toLowerCase().contains(companyName.toLowerCase()))
-                continue;
-
-            for(Job job : company.getJobs()) {
-                jobList.add("Nome da vaga: " + job.getName()
-                        + "\nNome da empresa: " + company.getName()
-                        + "\nRepresentante: " + company.getRepresentant()
-                        + "\nModalidade: " + job.getModality()
-                        + "\nÁrea de Ocupação: " + job.getOccupationArea());
-            }
-        }
-
-        return jobList;
+    private String formatJobToHTML(Company company, Job job) {
+        return "<html><body>" + "Nome da vaga: " + job.getName()
+                + "<br>Nome da empresa: " + company.getName()
+                + "<br>Representante: " + company.getRepresentant()
+                + "<br>Modalidade: " + job.getModality()
+                + "<br>Área de Ocupação: " + job.getOccupationArea()
+                + "<br> </body></html>";
     }
 
     public ArrayList<String> filterJobsByName(String jobName, ArrayList<Company> companies) {
@@ -64,33 +50,32 @@ public class JobController {
                 if(!job.getName().toLowerCase().contains(jobName.toLowerCase()))
                     continue;
 
-                jobList.add("Nome da vaga: " + job.getName()
-                        + "\nNome da empresa: " + company.getName()
-                        + "\nRepresentante: " + company.getRepresentant()
-                        + "\nModalidade: " + job.getModality()
-                        + "\nÁrea de Ocupação: " + job.getOccupationArea());
+                jobList.add(formatJobToHTML(company, job));
             }
         }
 
         return jobList;
     }
 
-    public ArrayList<String> filterJobsByRegion(String region, ArrayList<Company> companies) {
+    public ArrayList<String> listCompaniesJob(ArrayList<Company> companies) {
         ArrayList<String> jobList = new ArrayList<>();
 
         for(Company company : companies) {
-            if(company.getAddress().getState() != region)
-                continue;
-
             for(Job job : company.getJobs()) {
-                jobList.add("Nome da vaga: " + job.getName()
-                        + "\nNome da empresa: " + company.getName()
-                        + "\nRepresentante: " + company.getRepresentant()
-                        + "\nModalidade: " + job.getModality()
-                        + "\nÁrea de Ocupação: " + job.getOccupationArea());
+                jobList.add(formatJobToHTML(company, job));
             }
         }
 
         return jobList;
+    }
+
+    public Job getJobByName(Company company, String jobName) {
+        for(Job job : company.getJobs()) {
+            if(job.getName().equals(jobName)) {
+                return job;
+            }
+        }
+
+        return null;
     }
 }

@@ -39,4 +39,28 @@ public class CompanyController {
 
         return regions;
     }
+
+    public ArrayList<Company> filterCompaniesByRegion(String region) {
+        ArrayList<Company> filteredCompanies = new ArrayList<>();
+
+        for(Company company : companies) {
+            if(company.getAddress().getState().equals(region)) {
+                filteredCompanies.add(company);
+            }
+        }
+
+        return filteredCompanies;
+    }
+
+    public ArrayList<Company> filterCompaniesByName(String name, ArrayList<Company> companies) {
+        ArrayList<Company> filteredCompanies = new ArrayList<>();
+
+        for(Company company : companies) {
+            if(company.getName().toLowerCase().contains(name.toLowerCase())) {
+                filteredCompanies.add(company);
+            }
+        }
+
+        return filteredCompanies;
+    }
 }
