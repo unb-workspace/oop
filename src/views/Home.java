@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import components.Button;
 import components.TextLabel;
 
@@ -28,8 +29,8 @@ public class Home extends Screen {
         mainTextPanel.add(this.pageText, BorderLayout.PAGE_START);
 
         JPanel buttonsPanel = new JPanel();
-//        this.employeeButton.addActionListener(this::);
-//        this.employerButton.addActionListener(this::);
+        this.employeeButton.addActionListener(this::chooseUserType);
+        this.employerButton.addActionListener(this::chooseUserType);
         buttonsPanel.add(this.employeeButton, BorderLayout.PAGE_START);
         buttonsPanel.add(this.employerButton);
 
@@ -37,12 +38,17 @@ public class Home extends Screen {
         this.panel.add(buttonsPanel);
 
         this.add(panel);
+        this.disableButton();
         this.display();
     }
 
-   public static void main(String args[]){
-       new Home();
-   }
+    private void chooseUserType(ActionEvent event) {
+        if(event.getSource() == this.employeeButton) {
+            new SearchJobs("employee");
+        } else if(event.getSource() == this.employerButton) {
+            new SearchJobs("employer");
+        }
 
-
+        this.dispose();
+    }
 }
