@@ -1,13 +1,16 @@
 import java.awt.*;
+import java.awt.event.ActionEvent;
 
 import javax.swing.*;
 
 import components.Button;
 import components.TextField;
 import components.TextLabel;
+import components.ComboBox;
 
 public class CompanyAdm extends Screen {
-	Font fontField = new Font("Arial", Font.BOLD, 15);
+	
+	private final CompanyController companyController = new CompanyController();
 	private final JPanel panel = new JPanel();
 	private final JPanel title = new JPanel();
 	private final JPanel content = new JPanel();
@@ -53,7 +56,7 @@ public class CompanyAdm extends Screen {
 		streetPanel.add(streetField);
 		
 		JPanel ownerPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		ownerPanel.add(new TextLabel("Dono: "));
+		ownerPanel.add(new TextLabel("Representante: " + company.getRepresentant())); // adicionar o owner aq
 		
 		JPanel occupationAreaPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		occupationAreaPanel.add(new TextLabel("Área de ocupação: "));
@@ -61,6 +64,8 @@ public class CompanyAdm extends Screen {
 		occupationAreaPanel.add(occupationAreaField);
 		
 		JPanel buttons = new JPanel();
+		this.updateButton.addActionListener(this::updateCompany);
+		this.deleteButton.addActionListener(this::deleteCompany);
         buttons.add(this.updateButton);
         buttons.add(this.deleteButton);
 
@@ -70,8 +75,8 @@ public class CompanyAdm extends Screen {
 		this.content.add(statePanel);
 		this.content.add(cityPanel);
 		this.content.add(streetPanel);
-		this.content.add(ownerPanel);
 		this.content.add(occupationAreaPanel);
+		this.content.add(ownerPanel);
 		this.content.add(buttons);
 		
 		this.panel.add(title);
@@ -79,13 +84,32 @@ public class CompanyAdm extends Screen {
 		this.add(panel);
 		this.display();
 	}
+	
+	private void updateCompany(ActionEvent action) {
+		String email = this.emailField.getText().trim();
+		String state = this.stateField.getText().trim();
+		String city = this.cityField.getText().trim();
+		String street = this.streetField.getText().trim();
+		String occupationArea = this.occupationAreaField.getText().trim();
+		
+		if(email.isEmpty() || state.isEmpty() || city.isEmpty() || street.isEmpty() || occupationArea.isEmpty()) {
+			this.displayWarning("Preencha todos os campos!");
+			return;
+		}
+	}
+	
+	private void deleteCompany(ActionEvent event) {
+		
+	}
 
-	//public static void main(String[] args) {
-	//	Address endereco = new Address("Bahia", "California", "Pertino");
-	//	Company empresa = new Company( "EhPow", "Tecnologia", "emprego@ehpow.com", endereco );
+	public static void main(String[] args) {
+		Employer e1 = new Employer("thegm445", "445", "Gabriel Moura");
+		Address endereco = new Address("Bahia", "California", "Pertino");
+		Company empresa = new Company( "EhPow", "Tecnologia", "emprego@ehpow.com", endereco );
+		empresa.setRepresentant("thegm445");
         
-	//	new CompanyDetailsAdmScreen(empresa);
+		new CompanyAdm(empresa);
 
-	//}
+	}
 
 }
