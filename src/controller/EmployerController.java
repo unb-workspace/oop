@@ -21,7 +21,7 @@ public class EmployerController {
         return employers.get(username);
     }
     public boolean isUserAvailable(String username) {
-        return this.getEmployerByUsername(username) != null ? true : false;
+        return this.getEmployerByUsername(username) == null ? true : false;
     }
 
     public Employer createEmployer(String name,String user,String password,String role) {

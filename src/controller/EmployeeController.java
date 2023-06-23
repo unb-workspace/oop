@@ -15,7 +15,7 @@ public class EmployeeController {
     }
 
     public boolean isUserAvailable(String username) {
-        return this.getEmployeeByUsername(username) != null ? true : false;
+        return this.getEmployeeByUsername(username) == null ? true : false;
     }
 
     public HashMap<String, Employee> getEmployees() {
