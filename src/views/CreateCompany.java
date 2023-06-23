@@ -17,7 +17,7 @@ public class CreateCompany extends Screen {
     private final JPanel panel = new JPanel();
     private final TextField nameField = new TextField();
     private final TextField emailField = new TextField();
-    private final TextField stateField = new TextField();
+    private final ComboBox stateField = new ComboBox(CompanyController.availableRegions);
     private final TextField cityField = new TextField();
     private final TextField streetField = new TextField();
     private final TextField occupationAreaField = new TextField();
@@ -78,7 +78,7 @@ public class CreateCompany extends Screen {
     private void createCompany(ActionEvent action) {
         String name = this.nameField.getText().trim();
         String email = this.emailField.getText().trim();
-        String state = this.stateField.getText().trim();
+        String state = this.stateField.getSelectedItem().toString();;
         String city = this.cityField.getText().trim();
         String street = this.streetField.getText().trim();
         String occupationArea = this.occupationAreaField.getText().trim();
@@ -104,7 +104,6 @@ public class CreateCompany extends Screen {
     private void clearFields() {
         this.nameField.setText("");
         this.emailField.setText("");
-        this.stateField.setText("");
         this.cityField.setText("");
         this.streetField.setText("");
         this.occupationAreaField.setText("");
