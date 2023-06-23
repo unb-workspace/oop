@@ -11,7 +11,7 @@ import java.awt.event.ActionEvent;
 import java.util.ArrayList;
 import java.util.Objects;
 
-public class Main extends Screen {
+public class SearchJobs extends Screen {
     private final Object[] displayTypes = { "Vaga", "Empresa"};
     private final String default_option = "Qualquer região";
     private final CompanyController companyController = new CompanyController();
@@ -26,15 +26,22 @@ public class Main extends Screen {
     private final Button searchButton = new Button("Buscar");
     private final Font fontText = new Font("Arial", Font.BOLD, 12);
     private final ImageIcon createAccountIcon = new ImageIcon("src/resources/images/create_account_icon.png");
+    private final ImageIcon companyIcon = new ImageIcon(new ImageIcon("src/resources/images/company_icon.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
+    private final ImageIcon jobIcon = new ImageIcon(new ImageIcon("src/resources/images/job_icon.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
     private JList<Object> displayedJobs;
     private final String userType;
 
-    public Main(String userType) { // employer or employee
+    public SearchJobs(String userType) { // employer or employee
         super();
         this.userType = userType;
         this.addCreateAccountButton();
         this.createFilter();
         this.createList();
+
+        if(userType.equals("employer")) {
+            this.addCompanyButton();
+            this.addJobButton();
+        }
 
         this.add(bodyPanel, BorderLayout.CENTER);
 
@@ -59,6 +66,42 @@ public class Main extends Screen {
                 new CreateEmployee();
             }
 
+            this.dispose();
+        });
+
+        this.header.add(button, constraint);
+    }
+
+    private void addCompanyButton() {
+        GridBagConstraints constraint = new GridBagConstraints();
+        constraint.anchor = GridBagConstraints.WEST;
+        constraint.gridx = 1;
+        constraint.insets = insets;
+
+        JButton button = new JButton(companyIcon);
+        button.setBorder(BorderFactory.createEmptyBorder());
+        button.setBackground(null);
+        button.setPreferredSize(new Dimension(50, 50));
+        button.addActionListener(event -> {
+            new CreateCompany();
+            this.dispose();
+        });
+
+        this.header.add(button, constraint);
+    }
+
+    private void addJobButton() {
+        GridBagConstraints constraint = new GridBagConstraints();
+        constraint.anchor = GridBagConstraints.WEST;
+        constraint.gridx = 2;
+        constraint.insets = insets;
+
+        JButton button = new JButton(jobIcon);
+        button.setBorder(BorderFactory.createEmptyBorder());
+        button.setBackground(null);
+        button.setPreferredSize(new Dimension(50, 50));
+        button.addActionListener(event -> {
+            new AddJob();
             this.dispose();
         });
 
