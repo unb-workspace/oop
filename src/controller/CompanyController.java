@@ -63,4 +63,11 @@ public class CompanyController {
 
         return filteredCompanies;
     }
+    
+    public void updateEmail(Company company, String email) {
+    	if (company.getEmail() != email) {
+    		company.setEmail(email);
+    	}
+    }
+    
 }
