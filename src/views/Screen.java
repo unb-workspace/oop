@@ -3,6 +3,8 @@ import java.awt.*;
 
 public class Screen extends JFrame {
     protected final JPanel header = new JPanel();
+    private boolean buttonEnabled = true;
+
     ImageIcon logo = new ImageIcon("src/resources/images/linked_out_logo.png");
     Color headerColor = new Color(75, 44, 44);
     Color backgroundColor = new Color(217, 217, 217);
@@ -20,6 +22,10 @@ public class Screen extends JFrame {
         this.setDefaultFrame();
         this.setHeaderText("");
         this.createLogoButton();
+    }
+
+    protected void disableButton() {
+        this.buttonEnabled = false;
     }
 
     private void setDefaultFrame() {
@@ -60,6 +66,13 @@ public class Screen extends JFrame {
         JButton button = new JButton(logo);
         button.setBackground(this.backgroundColor);
         button.setBorder(BorderFactory.createEmptyBorder());
+        
+            button.addActionListener(event -> {
+                if(this.buttonEnabled) {
+                    new Home();
+                    this.dispose();
+                }
+            });
 
         header.add(button, constraint);
     }
