@@ -44,9 +44,9 @@ public class Home extends Screen {
 
     private void chooseUserType(ActionEvent event) {
         if(event.getSource() == this.employeeButton) {
-            new SearchJobs("employee");
+            new Main("employee");
         } else if(event.getSource() == this.employerButton) {
-            new SearchJobs("employer");
+            new Main("employer");
         }
 
         this.dispose();
