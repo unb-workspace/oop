@@ -1,10 +1,11 @@
+package views;
+
 import java.awt.*;
-
 import javax.swing.*;
-
-import components.Button;
-import components.TextField;
-import components.TextLabel;
+import models.Job;
+import views.components.Button;
+import views.components.TextField;
+import views.components.TextLabel;
 
 public class JobDetailsAdm extends Screen{
 	private final JPanel panel = new JPanel();

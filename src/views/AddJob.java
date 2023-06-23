@@ -1,10 +1,16 @@
+package views;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-
-import components.Button;
-import components.TextField;
-import components.TextLabel;
+import controllers.CompanyController;
+import controllers.JobController;
+import controllers.EmployerController;
+import models.Employer;
+import models.Job;
+import views.components.TextField;
+import views.components.Button;
+import views.components.TextLabel;
 
 public class AddJob extends Screen {
     Dimension textFieldSize = new Dimension(200, 30);

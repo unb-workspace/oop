@@ -1,3 +1,7 @@
+import controllers.*;
+import models.*;
+import views.Home;
+
 public class Main {
     public static void main(String[] args) {
         CompanyController companyController = new CompanyController();

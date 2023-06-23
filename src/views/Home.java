@@ -1,8 +1,10 @@
+package views;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import components.Button;
-import components.TextLabel;
+import views.components.Button;
+import views.components.TextLabel;
 
 public class Home extends Screen {
     Color colorField = new Color(199, 194, 194);

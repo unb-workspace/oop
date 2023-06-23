@@ -1,10 +1,11 @@
+package views;
+
 import java.awt.*;
-
 import javax.swing.*;
-
-import components.Button;
-import components.TextField;
-import components.TextLabel;
+import models.Company;
+import views.components.TextField;
+import views.components.Button;
+import views.components.TextLabel;
 
 public class CompanyAdm extends Screen {
 	Font fontField = new Font("Arial", Font.BOLD, 15);

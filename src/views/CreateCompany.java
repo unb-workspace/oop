@@ -1,11 +1,14 @@
+package views;
+
 import javax.swing.*;
-
-import components.TextField;
-import components.Button;
-import components.ComboBox;
-import components.TextLabel;
-
 import java.awt.*;
+import models.Company;
+import controllers.CompanyController;
+import controllers.EmployerController;
+import views.components.TextField;
+import views.components.Button;
+import views.components.ComboBox;
+import views.components.TextLabel;
 import java.awt.event.ActionEvent;
 
 public class CreateCompany extends Screen {

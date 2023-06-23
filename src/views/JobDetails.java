@@ -1,7 +1,9 @@
-import java.awt.*;
+package views;
 
+import java.awt.*;
 import javax.swing.*;
-import components.TextLabel;
+import models.Job;
+import views.components.TextLabel;
 
 public class JobDetails extends Screen{
 	private final JPanel panel = new JPanel();

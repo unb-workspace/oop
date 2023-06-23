@@ -1,3 +1,6 @@
+package controllers;
+
+import models.*;
 import java.util.HashMap;
 
 public class EmployeeController {

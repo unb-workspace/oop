@@ -1,9 +1,12 @@
+package views;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import components.TextField;
-import components.Button;
-import components.TextLabel;
+import controllers.EmployerController;
+import views.components.TextField;
+import views.components.Button;
+import views.components.TextLabel;
 
 public class CreateEmployer extends Screen{
     Dimension textFieldSize = new Dimension(200, 30);

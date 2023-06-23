@@ -1,7 +1,9 @@
-import java.awt.*;
+package views;
 
+import java.awt.*;
 import javax.swing.*;
-import components.TextLabel;
+import views.components.TextLabel;
+import models.Company;
 
 public class ShowCompany extends Screen{
 	private final JPanel panel = new JPanel();
@@ -53,13 +55,4 @@ public class ShowCompany extends Screen{
 		this.add(panel);
 		this.display();
 	}
-
-	//public static void main(String[] args) {
-	//	Address endereco = new Address("Bahia", "California", "Pertino");
-	//	Company empresa = new Company( "EhPow", "Tecnologia", "emprego@ehpow.com", endereco );
-        
-	//	new CompanyDetailsScreen(empresa);
-
-	//}
-
 }

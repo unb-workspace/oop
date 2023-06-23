@@ -1,15 +1,21 @@
-import components.Button;
-import components.ComboBox;
-import components.TextField;
+package views;
 
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import javax.swing.event.ListSelectionEvent;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
-import java.util.ArrayList;
 import java.util.Objects;
+import java.util.ArrayList;
+import views.components.Button;
+import views.components.ComboBox;
+import views.components.TextField;
+import controllers.CompanyController;
+import controllers.JobController;
+import controllers.EmployerController;
+import models.Company;
+import models.Employer;
+import models.Job;
 
 public class SearchJobs extends Screen {
     private final Object[] displayTypes = { "Vaga", "Empresa"};

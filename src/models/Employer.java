@@ -1,3 +1,5 @@
+package models;
+
 public class Employer extends User {
     private Company company;
     private String role;
