@@ -142,7 +142,7 @@ public class AddJob extends Screen {
 
         owner.getCompany().addJob(job);
 
-        this.displayWarning("Vaga adicionada com sucesso!");
+        this.displaySuccess("employer");
         this.clearFields();
     }
 
@@ -152,24 +152,5 @@ public class AddJob extends Screen {
         this.salaryField.setText("");
         this.workloadField.setText("");
         this.requirementsField.setText("");
-    }
-
-    public static void main(String args[]) {
-        Employer e1 = new Employer("thegm445", "445", "Gabriel Moura");
-        Employer e2 = new Employer("caio-felipee", "12345", "Caio Felipe");
-        Employer e3 = new Employer("thuzin-gameplays", "3243", "Arthur");
-        Employer e4 = new Employer("anacompetidora12", "4jfd", "Ana");
-
-        Company company = new Company("Coca Cola", "Comida", "fodase@gmail.com");
-        company.setRepresentant(e1.getUsername());
-        e1.setCompany(company);
-
-        Data.getEmployers().put(e1.username, e1);
-        Data.getEmployers().put(e2.username, e2);
-        Data.getEmployers().put(e3.username, e3);
-        Data.getEmployers().put(e4.username, e4);
-        Data.getCompanies().add(company);
-
-        new AddJob();
     }
 }

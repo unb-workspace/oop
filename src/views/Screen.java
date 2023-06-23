@@ -6,6 +6,8 @@ public class Screen extends JFrame {
     private boolean buttonEnabled = true;
 
     ImageIcon logo = new ImageIcon("src/resources/images/linked_out_logo.png");
+    ImageIcon success = new ImageIcon(new ImageIcon("src/resources/images/success_icon.png").getImage().getScaledInstance(40, 40, Image.SCALE_DEFAULT));
+
     Color headerColor = new Color(75, 44, 44);
     Color backgroundColor = new Color(217, 217, 217);
     Insets insets = new Insets(7, 7, 7, 7);
@@ -79,6 +81,12 @@ public class Screen extends JFrame {
 
     protected void displayWarning(String warning) {
         JOptionPane.showMessageDialog(this, warning, "Aviso", JOptionPane.WARNING_MESSAGE);
+    }
+
+    protected void displaySuccess(String userType) {        
+        JOptionPane.showMessageDialog(this, "Operação feita com sucesso!", "Confirmação", JOptionPane.INFORMATION_MESSAGE, success);
+        new SearchJobs(userType);
+        this.dispose();
     }
 
     public void display() {

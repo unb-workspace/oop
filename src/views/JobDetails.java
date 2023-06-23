@@ -50,15 +50,4 @@ public class JobDetails extends Screen{
 		this.add(panel);
 		this.display();
 	}
-
-	//public static void main(String[] args) {
-	//	Job job = new Job("Desenvolvedor Front-end", 2100, 8, "Remoto", "Tecnologia" );
-	//	job.addRequirement("UML");
-    //    job.addRequirement("OOP");
-    //    job.addRequirement("Java");
-        
-	//	new JobDetailsScreen(job);
-
-	//}
-
 }

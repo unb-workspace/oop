@@ -24,9 +24,8 @@ public class Home extends Screen {
         this.employeeButton.setPreferredSize(this.textFieldSize);
         this.employerButton.setPreferredSize(this.textFieldSize);
 
-        JPanel mainTextPanel = new JPanel();
+        JPanel mainTextPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
         mainTextPanel.add(new TextLabel("Deseja um emprego ou contratar novos colaboradores? Comece já!"));
-        mainTextPanel.add(this.pageText, BorderLayout.PAGE_START);
 
         JPanel buttonsPanel = new JPanel();
         this.employeeButton.addActionListener(this::chooseUserType);
@@ -44,9 +43,9 @@ public class Home extends Screen {
 
     private void chooseUserType(ActionEvent event) {
         if(event.getSource() == this.employeeButton) {
-            new Main("employee");
+            new SearchJobs("employee");
         } else if(event.getSource() == this.employerButton) {
-            new Main("employer");
+            new SearchJobs("employer");
         }
 
         this.dispose();

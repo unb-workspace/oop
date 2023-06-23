@@ -35,6 +35,7 @@ public class CreateEmployee extends Screen{
         userPanel.add(new TextLabel("Usuario:"));
         userPanel.add(this.userField);
 
+        // Faz um messageDialog que quando pressiona o botão OK, é instanciado a classe Home
         JPanel scholarPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
         scholarPanel.add(new TextLabel("Escolaridade:"));
         scholarPanel.add(this.scholarshipField);
@@ -74,7 +75,7 @@ public class CreateEmployee extends Screen{
         }
 
         employeeController.createEmployee(name, username, password, scholarship);
-        this.displayWarning("Empregado criado com sucesso!");
+        this.displaySuccess("employee");
         this.clearFields();
     }
 
@@ -84,9 +85,4 @@ public class CreateEmployee extends Screen{
         this.passwordField.setText("");
         this.scholarshipField.setText("");
     }
-
-    public static void main(String args[]){
-        new CreateEmployee();
-    }
-
 }
