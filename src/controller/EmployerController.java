@@ -24,11 +24,13 @@ public class EmployerController {
         return this.getEmployerByUsername(username) != null ? true : false;
     }
 
-    public void createEmployer(String name,String user,String password,String role) {
+    public Employer createEmployer(String name,String user,String password,String role) {
         Employer employer = new Employer(user,password,name);
         employer.setRole(role);
 
         employers.put(user, employer);
+
+        return employer;
     }
 
     public HashMap<String, Employer> getEmployers() {
