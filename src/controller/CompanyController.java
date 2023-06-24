@@ -65,10 +65,46 @@ public class CompanyController {
         return filteredCompanies;
     }
     
+    public void deleteCompany(String companyName, ArrayList<Company> companies) {
+    	for (Company company:companies) {
+    		if(company.getName() == companyName) {
+    			for (Job job:company.getJobs()) {
+    				company.removeJob(job);  // não sei se precisa dessa parte mas coloquei por causa da composicao
+    			}
+    			companies.remove(company);
+    		}
+    	}
+    }
+    
     public void updateEmail(Company company, String email) {
     	if (company.getEmail() != email) {
     		company.setEmail(email);
     	}
     }
+    
+    public void updateState(Company company, String state) {
+    	if ((company.getAddress()).getState() != state) {
+    		(company.getAddress()).setState(state);
+    	}
+    }
+    
+    public void updateCity(Company company, String city) {
+    	if ((company.getAddress()).getCity() != city) {
+    		(company.getAddress()).setCity(city);
+    	}
+    }
+    
+    public void updateStreet(Company company, String street) {
+    	if ((company.getAddress()).getStreet() != street) {
+    		(company.getAddress()).setStreet(street);
+    	}
+    }
+    
+    public void updateOccupationArea(Company company, String occupationArea) {
+    	if (company.getOccupationArea() != occupationArea) {
+    		company.setOccupationArea(occupationArea);
+    	}
+    }
+    
     
 }
