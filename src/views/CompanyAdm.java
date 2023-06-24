@@ -17,14 +17,16 @@ public class CompanyAdm extends Screen {
 	private final Button updateButton = new Button("Salvar");
 	private final Button deleteButton = new Button("Excluir");
 	private final JTextField emailField = new TextField();
-    private final JTextField stateField = new TextField();
+    private final ComboBox stateField = new ComboBox(CompanyController.availableRegions);
     private final JTextField cityField = new TextField();
     private final JTextField streetField = new TextField();
     private final JTextField occupationAreaField = new TextField();
+    private final Company company;
 	
 	public CompanyAdm(Company company) {
 		super();
 		
+		this.company = company;
 		this.panel.setLayout(new BoxLayout(this.panel, BoxLayout.Y_AXIS));
 		this.content.setLayout(new BoxLayout(this.content, BoxLayout.Y_AXIS));
 		
@@ -42,7 +44,7 @@ public class CompanyAdm extends Screen {
 		
 		JPanel statePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		statePanel.add(new TextLabel("Estado: "));
-		stateField.setText((company.getAddress()).getState());
+		stateField.setSelectedItem((company.getAddress()).getState());
 		statePanel.add(stateField);
 		
 		JPanel cityPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -87,24 +89,31 @@ public class CompanyAdm extends Screen {
 	
 	private void updateCompany(ActionEvent action) {
 		String email = this.emailField.getText().trim();
-		String state = this.stateField.getText().trim();
+		String state = this.stateField.getSelectedItem().toString();
 		String city = this.cityField.getText().trim();
 		String street = this.streetField.getText().trim();
 		String occupationArea = this.occupationAreaField.getText().trim();
 		
-		if(email.isEmpty() || state.isEmpty() || city.isEmpty() || street.isEmpty() || occupationArea.isEmpty()) {
+		if(email.isEmpty() || city.isEmpty() || street.isEmpty() || occupationArea.isEmpty()) {
 			this.displayWarning("Preencha todos os campos!");
 			return;
+		} else {
+			companyController.updateEmail(company, email); 
+			companyController.updateState(company, state);
+			companyController.updateCity(company, city);
+			companyController.updateStreet(company, street);
+			companyController.updateOccupationArea(company, occupationArea);
 		}
 	}
 	
 	private void deleteCompany(ActionEvent event) {
-		
+		companyController.deleteCompany(company.getName(), companyController.getCompanies());
+		// colocar algo para voltar pra tela principal
 	}
 
 	public static void main(String[] args) {
 		Employer e1 = new Employer("thegm445", "445", "Gabriel Moura");
-		Address endereco = new Address("Bahia", "California", "Pertino");
+		Address endereco = new Address("Espirito Santo", "California", "Pertino");
 		Company empresa = new Company( "EhPow", "Tecnologia", "emprego@ehpow.com", endereco );
 		empresa.setRepresentant("thegm445");
         
