@@ -113,7 +113,7 @@ public class JobController {
     }
     
     public void updateSalary(Job job, int salary) {
-    	if(job.getSalary() == salary) {
+    	if(job.getSalary() != salary) {
     		job.setSalary(salary);
     	}
     }
