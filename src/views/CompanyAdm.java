@@ -4,8 +4,6 @@ import java.awt.*;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import models.Company;
-import models.Employer;
-import models.Address;
 import views.components.TextField;
 import views.components.Button;
 import views.components.TextLabel;
