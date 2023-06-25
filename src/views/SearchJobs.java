@@ -34,7 +34,6 @@ public class SearchJobs extends Screen {
     private final ImageIcon createAccountIcon = new ImageIcon("src/resources/images/create_account_icon.png");
     private final ImageIcon companyIcon = new ImageIcon(new ImageIcon("src/resources/images/company_icon.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
     private final ImageIcon jobIcon = new ImageIcon(new ImageIcon("src/resources/images/job_icon.png").getImage().getScaledInstance(50, 50, Image.SCALE_DEFAULT));
-    private final ImageIcon secreteIcon = new ImageIcon("src/resources/images/copyright.png");
     private JList<Object> displayedJobs;
     private final String userType;
 
@@ -227,7 +226,9 @@ public class SearchJobs extends Screen {
 
         this.dispose();
     }
-    private void addSecretButton(){
+
+    private void addSecretButton() {
+        ImageIcon secretIcon = new ImageIcon("src/resources/images/copyright.png");
         JButton button = new JButton("Todos os direitos reservados ©");
         button.setPreferredSize(new Dimension(500,15));
         button.setBackground(null);
@@ -235,8 +236,8 @@ public class SearchJobs extends Screen {
         button.setContentAreaFilled(false);
         button.setSelected(false);
         button.setBorder(BorderFactory.createEmptyBorder());
-        button.addActionListener(event ->{
-        JOptionPane.showMessageDialog(this, null,"Mensagem importante",JOptionPane.INFORMATION_MESSAGE, secreteIcon);
+        button.addActionListener(event -> {
+            JOptionPane.showMessageDialog(this, null,"Mensagem importante",JOptionPane.INFORMATION_MESSAGE, secretIcon);
         });
         this.bodyPanel.add(button, BorderLayout.SOUTH);
     }
