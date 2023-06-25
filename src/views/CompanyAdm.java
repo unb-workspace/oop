@@ -8,21 +8,24 @@ import views.components.Button;
 import views.components.TextLabel;
 
 public class CompanyAdm extends Screen {
-	Font fontField = new Font("Arial", Font.BOLD, 15);
+	
+	private final CompanyController companyController = new CompanyController();
 	private final JPanel panel = new JPanel();
 	private final JPanel title = new JPanel();
 	private final JPanel content = new JPanel();
 	private final Button updateButton = new Button("Salvar");
 	private final Button deleteButton = new Button("Excluir");
 	private final JTextField emailField = new TextField();
-    private final JTextField stateField = new TextField();
+    private final ComboBox stateField = new ComboBox(CompanyController.availableRegions);
     private final JTextField cityField = new TextField();
     private final JTextField streetField = new TextField();
     private final JTextField occupationAreaField = new TextField();
+    private final Company company;
 	
 	public CompanyAdm(Company company) {
 		super();
 		
+		this.company = company;
 		this.panel.setLayout(new BoxLayout(this.panel, BoxLayout.Y_AXIS));
 		this.content.setLayout(new BoxLayout(this.content, BoxLayout.Y_AXIS));
 		
@@ -40,7 +43,7 @@ public class CompanyAdm extends Screen {
 		
 		JPanel statePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		statePanel.add(new TextLabel("Estado: "));
-		stateField.setText((company.getAddress()).getState());
+		stateField.setSelectedItem((company.getAddress()).getState());
 		statePanel.add(stateField);
 		
 		JPanel cityPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -54,7 +57,7 @@ public class CompanyAdm extends Screen {
 		streetPanel.add(streetField);
 		
 		JPanel ownerPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		ownerPanel.add(new TextLabel("Dono: "));
+		ownerPanel.add(new TextLabel("Representante: " + company.getRepresentant())); // adicionar o owner aq
 		
 		JPanel occupationAreaPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		occupationAreaPanel.add(new TextLabel("Área de ocupação: "));
@@ -62,6 +65,8 @@ public class CompanyAdm extends Screen {
 		occupationAreaPanel.add(occupationAreaField);
 		
 		JPanel buttons = new JPanel();
+		this.updateButton.addActionListener(this::updateCompany);
+		this.deleteButton.addActionListener(this::deleteCompany);
         buttons.add(this.updateButton);
         buttons.add(this.deleteButton);
 
@@ -71,8 +76,8 @@ public class CompanyAdm extends Screen {
 		this.content.add(statePanel);
 		this.content.add(cityPanel);
 		this.content.add(streetPanel);
-		this.content.add(ownerPanel);
 		this.content.add(occupationAreaPanel);
+		this.content.add(ownerPanel);
 		this.content.add(buttons);
 		
 		this.panel.add(title);
@@ -80,13 +85,39 @@ public class CompanyAdm extends Screen {
 		this.add(panel);
 		this.display();
 	}
+	
+	private void updateCompany(ActionEvent action) {
+		String email = this.emailField.getText().trim();
+		String state = this.stateField.getSelectedItem().toString();
+		String city = this.cityField.getText().trim();
+		String street = this.streetField.getText().trim();
+		String occupationArea = this.occupationAreaField.getText().trim();
+		
+		if(email.isEmpty() || city.isEmpty() || street.isEmpty() || occupationArea.isEmpty()) {
+			this.displayWarning("Preencha todos os campos!");
+			return;
+		} else {
+			companyController.updateEmail(company, email); 
+			companyController.updateState(company, state);
+			companyController.updateCity(company, city);
+			companyController.updateStreet(company, street);
+			companyController.updateOccupationArea(company, occupationArea);
+		}
+	}
+	
+	private void deleteCompany(ActionEvent event) {
+		companyController.deleteCompany(company.getName(), companyController.getCompanies());
+		// colocar algo para voltar pra tela principal
+	}
 
-	//public static void main(String[] args) {
-	//	Address endereco = new Address("Bahia", "California", "Pertino");
-	//	Company empresa = new Company( "EhPow", "Tecnologia", "emprego@ehpow.com", endereco );
+	public static void main(String[] args) {
+		Employer e1 = new Employer("thegm445", "445", "Gabriel Moura");
+		Address endereco = new Address("Espirito Santo", "California", "Pertino");
+		Company empresa = new Company( "EhPow", "Tecnologia", "emprego@ehpow.com", endereco );
+		empresa.setRepresentant("thegm445");
         
-	//	new CompanyDetailsAdmScreen(empresa);
+		new CompanyAdm(empresa);
 
-	//}
+	}
 
 }
