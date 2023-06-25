@@ -4,11 +4,14 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 
 import javax.swing.*;
+
+import controllers.JobController;
 import models.Job;
 import models.Company;
 import views.components.Button;
 import views.components.TextField;
 import views.components.TextLabel;
+import views.components.ComboBox;
 
 public class JobDetailsAdm extends Screen{
 	private final Company company;
@@ -19,7 +22,7 @@ public class JobDetailsAdm extends Screen{
 	private final Button deleteButton = new Button("Excluir");
 	private final Button companyButton = new Button("Ver Empresa");
 	private final TextField salaryField = new TextField();
-	private final TextField modalityField = new TextField();
+	private final ComboBox modalityField = new ComboBox(JobController.getModalities());
 	private final TextField workloadField = new TextField();
 	private final TextField occupationAreaField = new TextField();
 	private final TextField requirementsField = new TextField();
@@ -46,7 +49,7 @@ public class JobDetailsAdm extends Screen{
 		
 		JPanel modality = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		modality.add(new TextLabel("Modalidade: "));
-		modalityField.setText(job.getModality());
+		modalityField.setSelectedItem(job.getModality());
 		modality.add(modalityField);
 		
 		JPanel workload = new JPanel(new FlowLayout(FlowLayout.LEFT));
@@ -61,7 +64,7 @@ public class JobDetailsAdm extends Screen{
 		
 		JPanel requirements = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		requirements.add(new TextLabel("Requisitos: "));
-		requirementsField.setText(String.join(", ", job.getRequirements()));
+		requirementsField.setText(job.getRequirements());
 		requirements.add(requirementsField);
 		
 		JPanel buttons = new JPanel();
@@ -89,6 +92,16 @@ public class JobDetailsAdm extends Screen{
 	private void displayCompany(ActionEvent event) {
 		new CompanyAdm(company);
 		this.dispose();
+	}
+	
+	private void updateJob(ActionEvent action) {
+		String occupationArea = this.occupationAreaField.getText().trim();
+		int salary = Integer.parseInt(salaryField.getText().trim());
+		int workload = Integer.parseInt(workloadField.getText().trim());
+		String requirements = requirementsField.getText().trim();
+		String modality = modalityField.getSelectedItem().toString();
+		
+		
 	}
 
 	//public static void main(String[] args) {

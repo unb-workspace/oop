@@ -8,11 +8,19 @@ public class Job {
     private int workload;
     private String modality;
     private String occupation_area;
-    private ArrayList<String> requirements;
+    private String requirements;
 
-    public Job(String name, int salary, int workload, String modality, String occupation_area) {
-        this.requirements = new ArrayList<>();
+    public Job(String name, int salary, int workload, String modality, String occupation_area, String requirements) {
+        this.requirements = requirements;
         this.salary = salary;
+        this.workload = workload;
+        this.modality = modality;
+        this.occupation_area = occupation_area;
+        this.name = name;
+    }
+    
+    public Job(String name, int salary, int workload, String modality, String occupation_area) {
+    	this.salary = salary;
         this.workload = workload;
         this.modality = modality;
         this.occupation_area = occupation_area;
@@ -39,7 +47,7 @@ public class Job {
         return occupation_area;
     }
 
-    public ArrayList<String> getRequirements() {
+    public String getRequirements() {
         return requirements;
     }
 
@@ -55,16 +63,8 @@ public class Job {
         this.modality = modality;
     }
 
-    public void addRequirement(String requirement) {
-        requirements.add(requirement);
-    }
-
-    public boolean userHasAllRequirements(ArrayList<String> habilities) {
-        return habilities.containsAll(this.requirements);
-    }
-
-    public void removeRequirement(String requirement) {
-        requirements.remove(requirement);
+    public void setRequirements(String requirements) {
+    	this.requirements = requirements;
     }
 
     public String toString() {

@@ -48,7 +48,7 @@ public class JobDetails extends Screen {
 		occupationArea.add(new TextLabel("Área de Ocupação: " + job.getOccupationArea()));
 		
 		JPanel requirements = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		requirements.add(new TextLabel("Requisitos: " + String.join(", ", job.getRequirements())));
+		requirements.add(new TextLabel("Requisitos: " + job.getRequirements()));
 
 		JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
 		this.showCompanyButton.addActionListener(this::showCompany);

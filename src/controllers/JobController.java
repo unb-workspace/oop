@@ -11,11 +11,7 @@ public class JobController {
     }
 
     public Job createJob(String name, String occupationArea, int salary, String modality, int workload, String requirements) {
-        Job job = new Job(name, salary, workload, modality, occupationArea);
-
-        for(String requirement : requirements.split(",")) {
-            job.addRequirement(requirement.trim());
-        }
+        Job job = new Job(name, salary, workload, modality, occupationArea, requirements);
 
         return job;
     }
