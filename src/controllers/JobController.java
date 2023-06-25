@@ -77,4 +77,28 @@ public class JobController {
 
         return null;
     }
+
+    public static int getValidSalary(String salarystr) {
+        int salary = -1;
+
+        if(salarystr.matches("[0-9]+"))
+            salary = Integer.parseInt(salarystr);
+
+        if(salary < 0)
+            return -1;
+
+        return salary;
+    }
+
+    public static int getValidWorkload(String workloadstr) {
+        int workload = -1;
+
+        if(workloadstr.matches("[0-9]+"))
+            workload = Integer.parseInt(workloadstr);
+
+        if(workload < 0)
+            return -1;
+
+        return workload;
+    }
 }

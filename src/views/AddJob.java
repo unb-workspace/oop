@@ -102,26 +102,10 @@ public class AddJob extends Screen {
             return;
         }
 
-        int salary, workload;
-
-        try {
-            salary = Integer.parseInt(salarystr);
-        } catch(NumberFormatException error) {
-            this.displayWarning("Insira um salario valido no formato de um numero inteiro!");
-            this.salaryField.setText("");
-            return;
-        }
-
-        try {
-            workload = Integer.parseInt(workloadstr);
-        } catch(NumberFormatException error) {
-            this.displayWarning("Insira uma carga horaria no formato de um numero inteiro!");
-            this.workloadField.setText("");
-            return;
-        }
+        int salary = JobController.getValidSalary(salarystr), workload = JobController.getValidWorkload(workloadstr);
 
         if(salary < 0 || workload < 0) {
-            this.displayWarning("Proibido inserir valores negativos!");
+            this.displayWarning("Insira um valor inteiro não-negativo válido!");
 
             if(salary < 0)
                 this.salaryField.setText("");
