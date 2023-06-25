@@ -217,7 +217,7 @@ public class SearchJobs extends Screen {
         Job job = jobController.getJobByName(company, jobName);
 
         if(userType.equals("employer")) {
-            new JobDetailsAdm(job);
+            new JobDetailsAdm(company, job);
         }
         else {
             new JobDetails(job);

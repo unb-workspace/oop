@@ -1,30 +1,37 @@
 package views;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
+
 import javax.swing.*;
 import models.Job;
+import models.Company;
 import views.components.Button;
 import views.components.TextField;
 import views.components.TextLabel;
 
 public class JobDetailsAdm extends Screen{
+	private final Company company;
 	private final JPanel panel = new JPanel();
 	private final JPanel title = new JPanel();
 	private final JPanel content = new JPanel();
 	private final Button updateButton = new Button("Salvar");
 	private final Button deleteButton = new Button("Excluir");
+	private final Button companyButton = new Button("Ver Empresa");
 	private final TextField salaryField = new TextField();
 	private final TextField modalityField = new TextField();
 	private final TextField workloadField = new TextField();
 	private final TextField occupationAreaField = new TextField();
 	private final TextField requirementsField = new TextField();
 	
-	public JobDetailsAdm(Job job) {
+	public JobDetailsAdm(Company company, Job job) {
 		super();
 		
+		this.company = company;
 		this.panel.setLayout(new BoxLayout(this.panel, BoxLayout.Y_AXIS));
 		this.content.setLayout(new BoxLayout(this.content, BoxLayout.Y_AXIS));
-		
+		this.companyButton.setPreferredSize(new Dimension(150, 30));
+
 		JPanel name = new JPanel(new FlowLayout(FlowLayout.CENTER));
 		JLabel jobName = new JLabel(job.getName());
 		name.setBackground(new Color(75, 44, 44));
@@ -60,6 +67,9 @@ public class JobDetailsAdm extends Screen{
 		JPanel buttons = new JPanel();
         buttons.add(this.updateButton);
         buttons.add(this.deleteButton);
+		buttons.add(this.companyButton);
+
+		this.companyButton.addActionListener(this::displayCompany);
 
         this.title.add(name);
 
@@ -74,6 +84,11 @@ public class JobDetailsAdm extends Screen{
 		this.panel.add(content);
 		this.add(panel);
 		this.display();
+	}
+
+	private void displayCompany(ActionEvent event) {
+		new CompanyAdm(company);
+		this.dispose();
 	}
 
 	//public static void main(String[] args) {

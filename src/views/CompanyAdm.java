@@ -2,10 +2,15 @@ package views;
 
 import java.awt.*;
 import javax.swing.*;
+import java.awt.event.ActionEvent;
 import models.Company;
+import models.Employer;
+import models.Address;
 import views.components.TextField;
 import views.components.Button;
 import views.components.TextLabel;
+import views.components.ComboBox;
+import controllers.CompanyController;
 
 public class CompanyAdm extends Screen {
 	
@@ -96,28 +101,18 @@ public class CompanyAdm extends Screen {
 		if(email.isEmpty() || city.isEmpty() || street.isEmpty() || occupationArea.isEmpty()) {
 			this.displayWarning("Preencha todos os campos!");
 			return;
-		} else {
-			companyController.updateEmail(company, email); 
-			companyController.updateState(company, state);
-			companyController.updateCity(company, city);
-			companyController.updateStreet(company, street);
-			companyController.updateOccupationArea(company, occupationArea);
 		}
+
+		companyController.updateEmail(company, email); 
+		companyController.updateState(company, state);
+		companyController.updateCity(company, city);
+		companyController.updateStreet(company, street);
+		companyController.updateOccupationArea(company, occupationArea);
+		this.displaySuccess("employer");
 	}
 	
 	private void deleteCompany(ActionEvent event) {
-		companyController.deleteCompany(company.getName(), companyController.getCompanies());
-		// colocar algo para voltar pra tela principal
+		companyController.deleteCompany(company);
+		this.displaySuccess("employer");
 	}
-
-	public static void main(String[] args) {
-		Employer e1 = new Employer("thegm445", "445", "Gabriel Moura");
-		Address endereco = new Address("Espirito Santo", "California", "Pertino");
-		Company empresa = new Company( "EhPow", "Tecnologia", "emprego@ehpow.com", endereco );
-		empresa.setRepresentant("thegm445");
-        
-		new CompanyAdm(empresa);
-
-	}
-
 }
