@@ -11,7 +11,6 @@ import views.components.ComboBox;
 import controllers.CompanyController;
 
 public class CompanyAdm extends Screen {
-	
 	private final CompanyController companyController = new CompanyController();
 	private final JPanel panel = new JPanel();
 	private final JPanel title = new JPanel();
