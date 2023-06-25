@@ -50,6 +50,10 @@ public class Job {
     public String getRequirements() {
         return requirements;
     }
+    
+    public void setOccupationArea(String occupationArea) {
+    	this.occupation_area = occupationArea;
+    }
 
     public void setSalary(int salary) {
         this.salary = salary;

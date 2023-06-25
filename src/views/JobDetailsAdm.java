@@ -15,6 +15,8 @@ import views.components.ComboBox;
 
 public class JobDetailsAdm extends Screen{
 	private final Company company;
+	private final Job job;
+	private final JobController jobController = new JobController();
 	private final JPanel panel = new JPanel();
 	private final JPanel title = new JPanel();
 	private final JPanel content = new JPanel();
@@ -31,6 +33,7 @@ public class JobDetailsAdm extends Screen{
 		super();
 		
 		this.company = company;
+		this.job = job;
 		this.panel.setLayout(new BoxLayout(this.panel, BoxLayout.Y_AXIS));
 		this.content.setLayout(new BoxLayout(this.content, BoxLayout.Y_AXIS));
 		this.companyButton.setPreferredSize(new Dimension(150, 30));
@@ -43,31 +46,33 @@ public class JobDetailsAdm extends Screen{
 		name.add(jobName);
 		
 		JPanel salary = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		salary.add(new TextLabel("Salário (em reais): "));
+		salary.add(new TextLabel("*Salário (em reais): "));
 		salaryField.setText(Integer.toString(job.getSalary()));
 		salary.add(salaryField);
 		
 		JPanel modality = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		modality.add(new TextLabel("Modalidade: "));
+		modality.add(new TextLabel("*Modalidade: "));
 		modalityField.setSelectedItem(job.getModality());
 		modality.add(modalityField);
 		
 		JPanel workload = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		workload.add(new TextLabel("Carga Horária: "));
+		workload.add(new TextLabel("*Carga horária semanal (em horas): "));
 		workloadField.setText(Integer.toString(job.getWorkload()));
 		workload.add(workloadField);
 		
 		JPanel occupationArea = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		occupationArea.add(new TextLabel("Área de Ocupação: "));
+		occupationArea.add(new TextLabel("*Área de Ocupação: "));
 		occupationAreaField.setText(job.getOccupationArea());
 		occupationArea.add(occupationAreaField);
 		
 		JPanel requirements = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		requirements.add(new TextLabel("Requisitos: "));
+		requirements.add(new TextLabel("Requerimentos (separe por virgula): "));
 		requirementsField.setText(job.getRequirements());
 		requirements.add(requirementsField);
 		
 		JPanel buttons = new JPanel();
+		this.updateButton.addActionListener(this::updateJob);
+		this.deleteButton.addActionListener(this::deleteJob);
         buttons.add(this.updateButton);
         buttons.add(this.deleteButton);
 		buttons.add(this.companyButton);
@@ -96,12 +101,40 @@ public class JobDetailsAdm extends Screen{
 	
 	private void updateJob(ActionEvent action) {
 		String occupationArea = this.occupationAreaField.getText().trim();
-		int salary = Integer.parseInt(salaryField.getText().trim());
-		int workload = Integer.parseInt(workloadField.getText().trim());
+		String salaryStr = this.salaryField.getText().trim();
+		String workloadStr = this.workloadField.getText().trim();
 		String requirements = requirementsField.getText().trim();
 		String modality = modalityField.getSelectedItem().toString();
 		
+		if(occupationArea.isEmpty() || salaryStr.isEmpty() || workloadStr.isEmpty()) {
+			this.displayWarning("Preencha todos os campos assinalados com o simbolo (*)!");
+		}
 		
+		int salary = JobController.getValidSalary(salaryStr);
+		int workload = JobController.getValidWorkload(workloadStr);
+		
+		if(salary < 0 || workload < 0) {
+            this.displayWarning("Insira um valor inteiro não-negativo válido!");
+
+            if(salary < 0)
+                this.salaryField.setText("");
+
+            if(workload < 0)
+                this.workloadField.setText("");
+
+            return;
+        }
+		
+		jobController.updateOccupationArea(job, occupationArea);
+		jobController.updateRequirements(job, requirements);
+		jobController.updateSalary(job, salary);
+		jobController.updateWorkload(job, workload);
+		jobController.updateModality(job, modality);
+		
+	}
+	
+	private void deleteJob(ActionEvent action) {
+		jobController.deleteJob(job, company);
 	}
 
 	//public static void main(String[] args) {

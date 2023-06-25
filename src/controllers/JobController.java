@@ -101,4 +101,38 @@ public class JobController {
 
         return workload;
     }
+    
+    public void deleteJob(Job job, Company company) {
+    	company.removeJob(job);
+    }
+    
+    public void updateOccupationArea(Job job, String occupationArea) {
+    	if(!job.getOccupationArea().equals(occupationArea)) {
+    		job.setOccupationArea(occupationArea);
+    	}
+    }
+    
+    public void updateSalary(Job job, int salary) {
+    	if(job.getSalary() == salary) {
+    		job.setSalary(salary);
+    	}
+    }
+    
+    public void updateWorkload(Job job, int workload) {
+    	if(job.getWorkload() != workload) {
+    		job.setWorkload(workload);
+    	}
+    }
+    
+    public void updateModality(Job job, String modality) {
+    	if(!job.getModality().equals(modality)) {
+    		job.setModality(modality);
+    	}
+    }
+    
+    public void updateRequirements(Job job, String requirements) {
+    	if(!job.getRequirements().equals(requirements)) {
+    		job.setRequirements(requirements);
+    	}
+    }
 }
