@@ -1,7 +1,5 @@
 package models;
 
-import java.util.ArrayList;
-
 public class Job {
 	private String name;
     private int salary;
