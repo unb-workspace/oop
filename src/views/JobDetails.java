@@ -1,20 +1,31 @@
 package views;
 
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import javax.swing.*;
 import models.Job;
+import models.Company;
 import views.components.TextLabel;
+import views.components.Button;
 
-public class JobDetails extends Screen{
+public class JobDetails extends Screen {
+	private final Company company;
+	private final Job job;
 	private final JPanel panel = new JPanel();
 	private final JPanel title = new JPanel();
 	private final JPanel content = new JPanel();
+	private final Button showCompanyButton = new Button("Ver Empresa");
+	private final Button backButton = new Button("Voltar");
 	
-	public JobDetails(Job job) {
+	public JobDetails(Company company, Job job) {
 		super();
-		
+		this.company = company;
+		this.job = job;
+
 		this.panel.setLayout(new BoxLayout(this.panel, BoxLayout.Y_AXIS));
 		this.content.setLayout(new BoxLayout(this.content, BoxLayout.Y_AXIS));
+
+		this.showCompanyButton.setPreferredSize(new Dimension(150, 30));
 		
 		JPanel name = new JPanel(new FlowLayout(FlowLayout.CENTER));
 		JLabel jobName = new JLabel(job.getName());
@@ -39,6 +50,12 @@ public class JobDetails extends Screen{
 		JPanel requirements = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		requirements.add(new TextLabel("Requisitos: " + String.join(", ", job.getRequirements())));
 
+		JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.CENTER));
+		this.showCompanyButton.addActionListener(this::showCompany);
+		this.backButton.addActionListener(this::back);
+		buttonPanel.add(this.showCompanyButton);
+		buttonPanel.add(this.backButton);
+
         this.title.add(name);
 
 		this.content.add(salary);
@@ -46,10 +63,21 @@ public class JobDetails extends Screen{
 		this.content.add(workload);
 		this.content.add(occupationArea);
 		this.content.add(requirements);		
-		
+		this.content.add(buttonPanel);
+
 		this.panel.add(title);
 		this.panel.add(content);
 		this.add(panel);
 		this.display();
+	}
+
+	private void showCompany(ActionEvent event) {
+		new ShowCompany(this.company, this.job);
+		this.dispose();
+	}
+
+	private void back(ActionEvent event) {
+		new SearchJobs("employee");
+		this.dispose();
 	}
 }

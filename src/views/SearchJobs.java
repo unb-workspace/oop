@@ -220,7 +220,7 @@ public class SearchJobs extends Screen {
             new JobDetailsAdm(company, job);
         }
         else {
-            new JobDetails(job);
+            new JobDetails(company, job);
         }
 
         this.dispose();
