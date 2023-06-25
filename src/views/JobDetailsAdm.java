@@ -130,21 +130,11 @@ public class JobDetailsAdm extends Screen{
 		jobController.updateSalary(job, salary);
 		jobController.updateWorkload(job, workload);
 		jobController.updateModality(job, modality);
-		
+		this.displaySuccess("employer");
 	}
 	
 	private void deleteJob(ActionEvent action) {
 		jobController.deleteJob(job, company);
+		this.displaySuccess("employer");
 	}
-
-	//public static void main(String[] args) {
-	//	Job job = new Job("Desenvolvedor Front-end", 2100, 8, "Remoto", "Tecnologia" );
-	//	job.addRequirement("UML");
-    //    job.addRequirement("OOP");
-    //    job.addRequirement("Java");
-        
-	//	new JobDetailsAdmScreen(job);
-
-	//}
-
 }
