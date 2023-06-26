@@ -234,7 +234,6 @@ public class SearchJobs extends Screen {
         button.setBackground(null);
         button.setBorderPainted(false);
         button.setContentAreaFilled(false);
-        button.setSelected(false);
         button.setBorder(BorderFactory.createEmptyBorder());
         button.addActionListener(event -> {
             JOptionPane.showMessageDialog(this, null,"Mensagem importante",JOptionPane.INFORMATION_MESSAGE, secretIcon);

@@ -24,7 +24,7 @@ public class JobDetails extends Screen {
 
 		this.panel.setLayout(new BoxLayout(this.panel, BoxLayout.Y_AXIS));
 		this.content.setLayout(new BoxLayout(this.content, BoxLayout.Y_AXIS));
-
+		this.content.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 		this.showCompanyButton.setPreferredSize(new Dimension(150, 30));
 		
 		JPanel name = new JPanel(new FlowLayout(FlowLayout.CENTER));
