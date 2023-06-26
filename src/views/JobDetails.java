@@ -42,7 +42,7 @@ public class JobDetails extends Screen {
 		modality.add(new TextLabel("Modalidade: " + job.getModality()));
 		
 		JPanel workload = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		workload.add(new TextLabel("Carga Horária: " + job.getWorkload()));
+		workload.add(new TextLabel("Carga horária semanal (em horas): " + job.getWorkload()));
 		
 		JPanel occupationArea = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		occupationArea.add(new TextLabel("Área de Ocupação: " + job.getOccupationArea()));
