@@ -79,13 +79,5 @@ public class CreateEmployee extends Screen{
 
         employeeController.createEmployee(name, username, password, scholarship);
         this.displaySuccess("employee");
-        this.clearFields();
-    }
-
-    public void clearFields(){
-        this.nameField.setText("");
-        this.userField.setText("");
-        this.passwordField.setText("");
-        this.scholarshipField.setText("");
     }
 }

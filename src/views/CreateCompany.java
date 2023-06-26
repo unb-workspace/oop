@@ -101,14 +101,5 @@ public class CreateCompany extends Screen {
 
         employerController.setCompany(owner, company);
         this.displaySuccess("employer");
-        this.clearFields();
-    }
-
-    private void clearFields() {
-        this.nameField.setText("");
-        this.emailField.setText("");
-        this.cityField.setText("");
-        this.streetField.setText("");
-        this.occupationAreaField.setText("");
     }
 }

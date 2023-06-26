@@ -78,13 +78,6 @@ public class CreateEmployer extends Screen{
         
         employerController.createEmployer(name, username, password, role);
         this.displaySuccess("employer");
-        this.clearFields();
 
-    }
-    private void clearFields(){
-        this.nameField.setText("");
-        this.userField.setText("");
-        this.passwordField.setText("");
-        this.roleField.setText("");
     }
 }

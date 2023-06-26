@@ -133,14 +133,5 @@ public class AddJob extends Screen {
         owner.getCompany().addJob(job);
 
         this.displaySuccess("employer");
-        this.clearFields();
-    }
-
-    private void clearFields() {
-        this.nameField.setText("");
-        this.occupationAreaField.setText("");
-        this.salaryField.setText("");
-        this.workloadField.setText("");
-        this.requirementsField.setText("");
     }
 }
