@@ -71,6 +71,12 @@ public class CompanyController {
     public void deleteCompany(Company company) {
         this.companies.remove(company);
     }
+
+    public void updateName(Company company, String name) {
+        if(!company.getName().equals(name)) {
+            company.setName(name);
+        }
+    }
     
     public void updateEmail(Company company, String email) {
         if(!company.getEmail().equals(email)) {

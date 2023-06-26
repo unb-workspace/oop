@@ -106,6 +106,12 @@ public class JobController {
     	company.removeJob(job);
     }
     
+    public void updateName(Job job, String name) {
+        if(!job.getName().equals(name)) {
+            job.setName(name);
+        }
+    }
+
     public void updateOccupationArea(Job job, String occupationArea) {
     	if(!job.getOccupationArea().equals(occupationArea)) {
     		job.setOccupationArea(occupationArea);

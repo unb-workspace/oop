@@ -49,6 +49,10 @@ public class Job {
         return requirements;
     }
     
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public void setOccupationArea(String occupationArea) {
     	this.occupation_area = occupationArea;
     }

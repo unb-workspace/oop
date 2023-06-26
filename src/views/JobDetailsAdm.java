@@ -18,11 +18,11 @@ public class JobDetailsAdm extends Screen{
 	private final Job job;
 	private final JobController jobController = new JobController();
 	private final JPanel panel = new JPanel();
-	private final JPanel title = new JPanel();
 	private final JPanel content = new JPanel();
 	private final Button updateButton = new Button("Salvar");
 	private final Button deleteButton = new Button("Excluir");
 	private final Button companyButton = new Button("Ver Empresa");
+	private final TextField nameField = new TextField();
 	private final TextField salaryField = new TextField();
 	private final ComboBox modalityField = new ComboBox(JobController.getModalities());
 	private final TextField workloadField = new TextField();
@@ -39,13 +39,11 @@ public class JobDetailsAdm extends Screen{
 		this.content.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 		this.companyButton.setPreferredSize(new Dimension(150, 30));
 
-		JPanel name = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		JLabel jobName = new JLabel(job.getName());
-		name.setBackground(new Color(75, 44, 44));
-		jobName.setFont(new Font("Regular", Font.BOLD, 20));
-		jobName.setForeground(Color.WHITE);
-		name.add(jobName);
-		
+		JPanel name = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		name.add(new TextLabel("*Nome da vaga: "));
+		nameField.setText(job.getName());
+		name.add(nameField);
+
 		JPanel salary = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		salary.add(new TextLabel("*Salário (em reais): "));
 		salaryField.setText(Integer.toString(job.getSalary()));
@@ -80,8 +78,7 @@ public class JobDetailsAdm extends Screen{
 
 		this.companyButton.addActionListener(this::displayCompany);
 
-        this.title.add(name);
-
+        this.content.add(name);
 		this.content.add(salary);
 		this.content.add(modality);
 		this.content.add(workload);
@@ -89,7 +86,6 @@ public class JobDetailsAdm extends Screen{
 		this.content.add(requirements);		
 		this.content.add(buttons);
 		
-		this.panel.add(title);
 		this.panel.add(content);
 		this.add(panel);
 		this.display();
@@ -101,14 +97,16 @@ public class JobDetailsAdm extends Screen{
 	}
 	
 	private void updateJob(ActionEvent action) {
+		String name = this.nameField.getText().trim();
 		String occupationArea = this.occupationAreaField.getText().trim();
 		String salaryStr = this.salaryField.getText().trim();
 		String workloadStr = this.workloadField.getText().trim();
 		String requirements = requirementsField.getText().trim();
 		String modality = modalityField.getSelectedItem().toString();
 		
-		if(occupationArea.isEmpty() || salaryStr.isEmpty() || workloadStr.isEmpty()) {
+		if(name.isEmpty() || occupationArea.isEmpty() || salaryStr.isEmpty() || workloadStr.isEmpty()) {
 			this.displayWarning("Preencha todos os campos assinalados com o simbolo (*)!");
+			return;
 		}
 		
 		int salary = JobController.getValidSalary(salaryStr);
@@ -126,6 +124,7 @@ public class JobDetailsAdm extends Screen{
             return;
         }
 		
+		jobController.updateName(job, name);
 		jobController.updateOccupationArea(job, occupationArea);
 		jobController.updateRequirements(job, requirements);
 		jobController.updateSalary(job, salary);

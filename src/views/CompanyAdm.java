@@ -13,15 +13,15 @@ import controllers.CompanyController;
 public class CompanyAdm extends Screen {	
 	private final CompanyController companyController = new CompanyController();
 	private final JPanel panel = new JPanel();
-	private final JPanel title = new JPanel();
 	private final JPanel content = new JPanel();
 	private final Button updateButton = new Button("Salvar");
 	private final Button deleteButton = new Button("Excluir");
-	private final JTextField emailField = new TextField();
+	private final TextField nameField = new TextField();
+	private final TextField emailField = new TextField();
     private final ComboBox stateField = new ComboBox(CompanyController.availableRegions);
-    private final JTextField cityField = new TextField();
-    private final JTextField streetField = new TextField();
-    private final JTextField occupationAreaField = new TextField();
+    private final TextField cityField = new TextField();
+    private final TextField streetField = new TextField();
+    private final TextField occupationAreaField = new TextField();
     private final Company company;
 	
 	public CompanyAdm(Company company) {
@@ -30,14 +30,13 @@ public class CompanyAdm extends Screen {
 		this.company = company;
 		this.panel.setLayout(new BoxLayout(this.panel, BoxLayout.Y_AXIS));
 		this.content.setLayout(new BoxLayout(this.content, BoxLayout.Y_AXIS));
+		this.content.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
 		
-		JPanel name = new JPanel(new FlowLayout(FlowLayout.CENTER));
-		JLabel companyName = new JLabel(company.getName());
-		name.setBackground(new Color(75, 44, 44));
-		name.add(companyName);
-		companyName.setFont(new Font("Regular", Font.BOLD, 20));
-		companyName.setForeground(Color.WHITE);
-		
+		JPanel namePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		namePanel.add(new TextLabel("Nome da empresa: "));
+		nameField.setText(company.getName());
+		namePanel.add(nameField);
+
 		JPanel emailPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		emailPanel.add(new TextLabel("Email: "));
 		emailField.setText(company.getEmail());
@@ -72,8 +71,7 @@ public class CompanyAdm extends Screen {
         buttons.add(this.updateButton);
         buttons.add(this.deleteButton);
 
-        this.title.add(name);
-
+		this.content.add(namePanel);
 		this.content.add(emailPanel);
 		this.content.add(statePanel);
 		this.content.add(cityPanel);
@@ -82,24 +80,25 @@ public class CompanyAdm extends Screen {
 		this.content.add(ownerPanel);
 		this.content.add(buttons);
 		
-		this.panel.add(title);
 		this.panel.add(content);
 		this.add(panel);
 		this.display();
 	}
 	
 	private void updateCompany(ActionEvent action) {
+		String name = this.nameField.getText().trim();
 		String email = this.emailField.getText().trim();
 		String state = this.stateField.getSelectedItem().toString();
 		String city = this.cityField.getText().trim();
 		String street = this.streetField.getText().trim();
 		String occupationArea = this.occupationAreaField.getText().trim();
 		
-		if(email.isEmpty() || city.isEmpty() || street.isEmpty() || occupationArea.isEmpty()) {
+		if(name.isEmpty() || email.isEmpty() || city.isEmpty() || street.isEmpty() || occupationArea.isEmpty()) {
 			this.displayWarning("Preencha todos os campos!");
 			return;
 		}
 
+		companyController.updateName(company, name);
 		companyController.updateEmail(company, email); 
 		companyController.updateState(company, state);
 		companyController.updateCity(company, city);
