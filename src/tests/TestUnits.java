@@ -14,6 +14,7 @@ public class TestUnits {
         assertEquals(employeeController.getEmployeeByUsername("joaopedefeijao"), employee);
     }
 
+    @Test
     public void testEmployerUsername() {
         EmployerController employerController = new EmployerController();
         Employer employer = employerController.createEmployer("Pinóquio", "pinoquio", "teste", "Dono");
@@ -21,6 +22,7 @@ public class TestUnits {
         assertEquals(employerController.getEmployerByUsername("pinoquio"), employer);
     }
 
+    @Test
     public void testValidSalary() {
         String salary = "0";
         String salary2 = "500";
