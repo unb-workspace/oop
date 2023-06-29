@@ -23,6 +23,7 @@ public class EmployerController {
     public Employer getEmployerByUsername(String username) {
         return employers.get(username);
     }
+    
     public boolean isUserAvailable(String username) {
         return this.getEmployerByUsername(username) == null ? true : false;
     }
