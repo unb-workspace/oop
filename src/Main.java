@@ -2,7 +2,16 @@ import controllers.*;
 import models.*;
 import views.Home;
 
+/**
+ * Classe principal do programa.
+ * <p>
+ * Serve também para carregar dados aleatórios no sistema.
+ */
 public class Main {
+    /**
+     * Método principal do programa.
+     * @param args argumentos passados na execução do programa.
+     */
     public static void main(String[] args) {
         CompanyController companyController = new CompanyController();
         JobController jobController = new JobController();
