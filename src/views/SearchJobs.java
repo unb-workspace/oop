@@ -175,7 +175,7 @@ public class SearchJobs extends Screen {
             jobs = jobController.filterJobsByName(name, companies);
         }
         else if(!name.isEmpty() && Objects.equals(type, "Empresa")) {
-            jobs = jobController.listCompaniesJob(companyController.filterCompaniesByName(name, companies));
+            jobs = jobController.getJobsList(companyController.filterCompaniesByName(name, companies));
         }
         else {
             jobs = jobController.getJobsList(companies);
