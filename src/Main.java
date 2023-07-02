@@ -3,10 +3,6 @@ import models.*;
 import views.Home;
 
 public class Main {
-    
-    /** 
-     * @param args
-     */
     public static void main(String[] args) {
         CompanyController companyController = new CompanyController();
         JobController jobController = new JobController();
