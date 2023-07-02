@@ -14,7 +14,6 @@ import java.util.HashMap;
 public class EmployeeController {
     private HashMap<String, Employee> employees = Data.getEmployees();
     
-    
     /** 
      * Cria um objeto do tipo <code>Employee</code> com os parâmetros pré-definidos.
      * Ao utilizar este método, ele será automaticamente incluído na memória. Isto é, na classe de dados.
