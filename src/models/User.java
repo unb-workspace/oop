@@ -1,7 +1,5 @@
 package models;
 
-import java.util.Date;
-
 /**
  * A classe User é designada para a criação de um usuário e é a classe pai de <code>Employer</code> e <code>Employee</code>.
  * @author Ana Clara, Arthur e Caio.
@@ -12,7 +10,6 @@ public abstract class User {
     protected String username;
     protected String name;
     protected String password;
-    protected Date creation_date;
 
     /**
      *Método construtor responsável pela criação de um usuário.
@@ -24,15 +21,10 @@ public abstract class User {
         this.username = username;
         this.password = password;
         this.name = name;
-        this.creation_date = new Date();
     }
 
     public String getPassword() {
         return this.password;
-    }
-
-    public Date getCreationDate() {
-        return this.creation_date;
     }
 
     public String getUsername() {
@@ -44,6 +36,6 @@ public abstract class User {
     }
 
     public String toString() {
-        return "{ username: " + this.username + ", password: " + this.password + ", creation_date: " + this.creation_date + " }";
+        return "{ username: " + this.username + ", password: " + this.password + " }";
     }
 }

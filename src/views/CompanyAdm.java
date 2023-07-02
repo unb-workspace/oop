@@ -69,7 +69,7 @@ public class CompanyAdm extends Screen {
 		streetPanel.add(streetField);
 		
 		JPanel ownerPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		ownerPanel.add(new TextLabel("Representante: " + company.getRepresentant()));
+		ownerPanel.add(new TextLabel("Representante: " + company.getRepresentative()));
 		
 		JPanel occupationAreaPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		occupationAreaPanel.add(new TextLabel("Área de ocupação: "));

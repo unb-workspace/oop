@@ -33,7 +33,7 @@ public class CompanyController {
         Address address = new Address(state, city, street);
 
         company.setAddress(address);
-        company.setRepresentant(owner);
+        company.setRepresentative(owner);
 
         companies.add(company);
         return company;
@@ -55,7 +55,7 @@ public class CompanyController {
         ArrayList<String> owners = new ArrayList<>();
 
         for(Company company : companies) {
-            owners.add(company.getName() + " (" + company.getRepresentant() + ")");
+            owners.add(company.getName() + " (" + company.getRepresentative() + ")");
         }
 
         return owners;

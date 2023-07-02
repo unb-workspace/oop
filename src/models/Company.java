@@ -15,7 +15,7 @@ public class Company {
     private String occupation_area;
     private String email;
     private Address address;
-    private String representant;
+    private String representative;
     private final ArrayList<Job> jobs = new ArrayList<>();
 
     /**
@@ -59,12 +59,12 @@ public class Company {
     public Address getAddress() {
         return address;
     }
-    public String getRepresentant() {
-        return representant;
+    public String getRepresentative() {
+        return representative;
     }
 
-    public void setRepresentant(String username) {
-        this.representant = username;
+    public void setRepresentative(String username) {
+        this.representative = username;
     }
 
     public ArrayList<Job> getJobs() {

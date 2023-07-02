@@ -56,7 +56,7 @@ public class ShowCompany extends Screen {
 		streetPanel.add(new TextLabel("Rua: " + (company.getAddress()).getStreet()));
 		
 		JPanel ownerPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		ownerPanel.add(new TextLabel("Representante: " + company.getRepresentant()));
+		ownerPanel.add(new TextLabel("Representante: " + company.getRepresentative()));
 		
 		JPanel occupationAreaPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		occupationAreaPanel.add(new TextLabel("Área de ocupação: " + company.getOccupationArea()));

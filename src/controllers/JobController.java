@@ -75,7 +75,7 @@ public class JobController {
     private String formatJobToHTML(Company company, Job job) {
         return "<html><body>" + "Nome da vaga: " + job.getName()
                 + "<br>Nome da empresa: " + company.getName()
-                + "<br>Representante: " + company.getRepresentant()
+                + "<br>Representante: " + company.getRepresentative()
                 + "<br>Modalidade: " + job.getModality()
                 + "<br>Área de Ocupação: " + job.getOccupationArea()
                 + "<br> </body></html>";
