@@ -8,6 +8,13 @@ import views.components.TextField;
 import views.components.Button;
 import views.components.TextLabel;
 
+/**
+ * Tela encarregada pela criação de um usuário do tipo "Empregado".
+ * @see Screen
+ * @author Ana Clara, Arthur e Caio.
+ * @since 2023.
+ * @version 1.0
+ */
 public class CreateEmployee extends Screen{
     Dimension textFieldSize = new Dimension(200, 30);
     Color colorField = new Color(199, 194, 194);
@@ -20,6 +27,9 @@ public class CreateEmployee extends Screen{
     private final JPasswordField passwordField = new JPasswordField();
     private final Button createButton = new Button("Criar");
 
+    /**
+     * Método construtor responsável pela inicialização da tela de criação de um usuário do tipo "Empregado".
+     */
     public CreateEmployee(){
         super("Adicionar Empregado");
 
@@ -61,6 +71,10 @@ public class CreateEmployee extends Screen{
         this.display();
     }
 
+    /**
+     * Método responsável pela criação de um usuário do tipo "Empregado" ao clicar no botão "Criar".
+     * @param action define a ação de criação do usuário.
+     */
     private void createEmployee(ActionEvent action){
         String name = this.nameField.getText().trim();
         String username = this.userField.getText().trim();

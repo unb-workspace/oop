@@ -7,8 +7,7 @@ import java.util.ArrayList;
  * Representa o controlador das empresas.
  * <p>
  * Contém métodos para atualização, criação e gerenciamento destes.
- * 
- * @author Ana, Arthur e Caio
+ * @author Ana Clara, Arthur e Caio
  * @version 1.2
  * @since 2023
  */
@@ -61,7 +60,6 @@ public class CompanyController {
 
         return owners;
     }
-
 
     /**
      * Retorna as regiões (por estado) das empresas cadastradas na memória.
@@ -126,7 +124,7 @@ public class CompanyController {
     /**
      * Atualiza o nome da empresa, caso haja alteração no nome.
      * @param company o objeto do tipo <code>Company</code> a ser deletado
-     * @param name
+     * @param name o novo nome da empresa
      */
     public void updateName(Company company, String name) {
         if(!company.getName().equals(name)) {
@@ -136,8 +134,8 @@ public class CompanyController {
     
     /**
      * Atualiza o e-mail da empresa, caso haja alteração no e-mail.
-     * @param company
-     * @param email
+     * @param company o objeto do tipo <code>Company</code> a ser atualizado
+     * @param email o novo e-mail da empresa
      */
     public void updateEmail(Company company, String email) {
         if(!company.getEmail().equals(email)) {
@@ -147,8 +145,8 @@ public class CompanyController {
     
     /**
      * Atualiza o endereço da empresa por estado, caso haja alteração no estado.
-     * @param company
-     * @param state
+     * @param company o objeto do tipo <code>Company</code> a ser atualizado
+     * @param state o novo estado (endereço) da empresa
      */
     public void updateState(Company company, String state) {
         if(!company.getAddress().getState().equals(state)) {
@@ -158,8 +156,8 @@ public class CompanyController {
     
     /**
      * Atualiza o endereço da empresa por cidade, caso haja alteração na cidade.
-     * @param company
-     * @param city
+     * @param company o objeto do tipo <code>Company</code> a ser atualizado
+     * @param city a nova cidade (endereço) da empresa
      */
     public void updateCity(Company company, String city) {
         if(!company.getAddress().getCity().equals(city)) {
@@ -169,8 +167,8 @@ public class CompanyController {
     
     /**
      * Atualiza o endereço da empresa por rua, caso haja alteração na rua.
-     * @param company
-     * @param street
+     * @param company o objeto do tipo <code>Company</code> a ser atualizado
+     * @param street a nova rua (endereço) da empresa
      */
     public void updateStreet(Company company, String street) {
         if(!company.getAddress().getStreet().equals(street)) {
@@ -180,8 +178,8 @@ public class CompanyController {
     
     /**
      * Atualiza a área de ocupação da empresa, caso haja alteração na área de ocupação.
-     * @param company
-     * @param occupationArea
+     * @param company o objeto do tipo <code>Company</code> a ser atualizado
+     * @param occupationArea a nova área de ocupação da empresa
      */
     public void updateOccupationArea(Company company, String occupationArea) {
         if(!company.getOccupationArea().equals(occupationArea)) {

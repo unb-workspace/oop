@@ -1,19 +1,16 @@
 package models;
 
-import java.util.ArrayList;
-
 /**
- * A classe Employee é designada para a crianção de um funcionário, que tem parâmetro herdados da classe <code>User</code>.
+ * A classe Employee é designada para a criação de um funcionário, que tem parâmetros herdados da classe <code>User</code>.
  * @author Ana Clara, Arthur e Caio.
  * @since 2023
- * @version 1.0
+ * @version 1.2
  */
 public class Employee extends User {
     private String scholarship_level;
-    private ArrayList<String> habilities;
 
     /**
-     *Método construtor responsável pela criação de um usuário do tipo <code>Employee</code>. Além dos atributos herdados da classe
+     * Método construtor responsável pela criação de um usuário do tipo <code>Employee</code>. Além dos atributos herdados da classe
      * <code>User</code>, recebe também o parâmetro nível de escolaridade e adiciona uma ArrayList de habilidades do funcionário.
      * @param username define o nome de usuário do funcionário.
      * @param password define a senha de acesso do funcionário.
@@ -22,21 +19,8 @@ public class Employee extends User {
      */
     public Employee(String username, String password, String name, String scholarship_level){
         super(username, password, name);
-
-        this.habilities = new ArrayList<>();
+        
         this.scholarship_level = scholarship_level;
-    }
-
-    public void addHability(String hability) {
-        habilities.add(hability);
-    }
-
-    public boolean hasHability(String hability) {
-        return habilities.contains(hability);
-    }
-
-    public ArrayList<String> getHabilities() {
-        return this.habilities;
     }
 
     public String getScholarshipLevel() {
@@ -48,7 +32,7 @@ public class Employee extends User {
     }
 
     public String toString() {
-        return "{ scholarship level: " + getScholarshipLevel() + ", habilidades: " + getHabilities() + " }";
+        return "{ scholarship level: " + getScholarshipLevel();
     }
 }
 

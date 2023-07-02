@@ -8,6 +8,13 @@ import views.components.Button;
 import models.Company;
 import models.Job;
 
+/**
+ * Tela de visualização de detalhes de uma empresa.
+ * @see Screen
+ * @author Ana Clara, Arthur e Caio.
+ * @since 2023.
+ * @version 1.2
+ */
 public class ShowCompany extends Screen {
 	private final Company company;
 	private final Job job;
@@ -16,6 +23,11 @@ public class ShowCompany extends Screen {
 	private final JPanel content = new JPanel();
 	private final Button backButton = new Button("Voltar");
 	
+	/**
+	 * Método construtor responsável pela criação da tela de visualização de detalhes de uma empresa.
+	 * @param company define a empresa.
+	 * @param job define a vaga de emprego.
+	 */
 	public ShowCompany(Company company, Job job) {
 		super();
 		this.company = company;
@@ -44,7 +56,7 @@ public class ShowCompany extends Screen {
 		streetPanel.add(new TextLabel("Rua: " + (company.getAddress()).getStreet()));
 		
 		JPanel ownerPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
-		ownerPanel.add(new TextLabel("Dono: " + company.getRepresentant()));
+		ownerPanel.add(new TextLabel("Representante: " + company.getRepresentant()));
 		
 		JPanel occupationAreaPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		occupationAreaPanel.add(new TextLabel("Área de ocupação: " + company.getOccupationArea()));
@@ -69,6 +81,10 @@ public class ShowCompany extends Screen {
 		this.display();
 	}
 
+	/**
+	 * Método responsável por retornar à tela de detalhes da vaga de emprego.
+	 * @param event define o evento de clique.
+	 */
 	private void back(ActionEvent event) {
 		new JobDetails(this.company, this.job);
 		this.dispose();

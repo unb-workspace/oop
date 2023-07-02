@@ -6,6 +6,13 @@ import java.awt.event.ActionEvent;
 import views.components.Button;
 import views.components.TextLabel;
 
+/**
+ * Classe que representa a tela inicial do sistema, onde o usuário pode escolher se deseja procurar um emprego ou contratar novos colaboradores.
+ * @see Screen
+ * @author Ana Clara, Arthur e Caio.
+ * @since 2023.
+ * @version 1.0
+ */
 public class Home extends Screen {
     Color colorField = new Color(199, 194, 194);
     Dimension textFieldSize = new Dimension(200, 30);
@@ -15,6 +22,9 @@ public class Home extends Screen {
     private final JPanel panel = new JPanel(new FlowLayout(FlowLayout.CENTER));
     private final JLabel pageText = new JLabel();
 
+    /**
+     * Método construtor responsável pela inicialização da tela inicial do sistema.
+     */
     public Home() {
         super();
         this.panel.setLayout(new BoxLayout(this.panel, BoxLayout.Y_AXIS));
@@ -43,6 +53,10 @@ public class Home extends Screen {
         this.display();
     }
 
+    /**
+     * Método responsável por alterar a tela inicial pela escolhida, "Empregado" ou "Empregador".
+     * @param event Evento de clique.
+     */
     private void chooseUserType(ActionEvent event) {
         if(event.getSource() == this.employeeButton) {
             new SearchJobs("employee");

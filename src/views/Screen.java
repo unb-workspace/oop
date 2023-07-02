@@ -3,6 +3,12 @@ package views;
 import javax.swing.*;
 import java.awt.*;
 
+/**
+ * Classe responsável pela criação de telas principal.
+ * @author Ana Clara, Arthur e Caio.
+ * @since 2023.
+ * @version 1.0 
+ */
 public class Screen extends JFrame {
     protected final JPanel header = new JPanel();
     private boolean buttonEnabled = true;
@@ -14,6 +20,10 @@ public class Screen extends JFrame {
     Color backgroundColor = new Color(217, 217, 217);
     Insets insets = new Insets(7, 7, 7, 7);
 
+    /**
+     * Método construtor responsável pela inicialização da tela principal.
+     * @param title define o título da tela.
+     */
     public Screen(String title) {
         super("LinkedOut - " + title);
         this.setDefaultFrame();
@@ -21,6 +31,9 @@ public class Screen extends JFrame {
         this.createLogoButton();
     }
 
+    /**
+     * Método construtor responsável pela inicialização da tela principal.
+     */
     public Screen() {
         super("LinkedOut");
         this.setDefaultFrame();
@@ -28,10 +41,16 @@ public class Screen extends JFrame {
         this.createLogoButton();
     }
 
+    /**
+     * Método responsável por desativar o botão para voltar para a tela "Home".
+     */
     protected void disableButton() {
         this.buttonEnabled = false;
     }
 
+    /**
+     * Método responsável por criar o estilo da tela.
+     */
     private void setDefaultFrame() {
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         this.setSize(1280, 720);
@@ -47,6 +66,10 @@ public class Screen extends JFrame {
         this.add(header, BorderLayout.PAGE_START);
     }
 
+    /**
+     * Método responsável por criar o título da tela.
+     * @param title define o título da tela.
+     */
     private void setHeaderText(String title) {
         GridBagConstraints constraint = new GridBagConstraints();
         constraint.anchor = GridBagConstraints.CENTER;
@@ -62,6 +85,9 @@ public class Screen extends JFrame {
         header.add(text, constraint);
     }
 
+    /**
+     * Método responsável por criar o botão para voltar para a tela "Home".
+     */
     private void createLogoButton() {
         GridBagConstraints constraint = new GridBagConstraints();
         constraint.anchor = GridBagConstraints.EAST;
@@ -81,16 +107,29 @@ public class Screen extends JFrame {
         header.add(button, constraint);
     }
 
+    /**
+     * Método responsável por mostrar um aviso na tela do usuário.
+     * @param warning define o aviso a ser mostrado.
+     */
     protected void displayWarning(String warning) {
         JOptionPane.showMessageDialog(this, warning, "Aviso", JOptionPane.WARNING_MESSAGE);
     }
 
+    /**
+     * Método responsável por mostrar uma mensagem de sucesso na tela do usuário.
+     * <p>Aviso</p>
+     * Ao utilizar este método, o usuário voltará para a tela de busca de emprego.
+     * @param userType define o tipo de usuário que está usando o sistema.
+     */
     protected void displaySuccess(String userType) {        
         JOptionPane.showMessageDialog(this, "Operação feita com sucesso!", "Confirmação", JOptionPane.INFORMATION_MESSAGE, success);
         new SearchJobs(userType);
         this.dispose();
     }
 
+    /**
+     * Método responsável por mostrar a tela.
+     */
     public void display() {
         this.setVisible(true);
     }

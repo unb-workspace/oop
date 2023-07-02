@@ -13,6 +13,13 @@ import views.components.TextField;
 import views.components.TextLabel;
 import views.components.ComboBox;
 
+/**
+ * Tela de visualização e edição de vaga de emprego.
+ * @see Screen
+ * @author Ana Clara, Arthur e Caio.
+ * @since 2023.
+ * @version 1.0 
+ */
 public class JobDetailsAdm extends Screen{
 	private final Company company;
 	private final Job job;
@@ -29,6 +36,11 @@ public class JobDetailsAdm extends Screen{
 	private final TextField occupationAreaField = new TextField();
 	private final TextField requirementsField = new TextField();
 	
+	/**
+	 * Método construtor responsável pela criação da tela de visualização e edição de vaga de emprego.
+	 * @param company define a empresa da vaga de emprego.
+	 * @param job define a vaga de emprego.
+	 */
 	public JobDetailsAdm(Company company, Job job) {
 		super();
 		
@@ -91,11 +103,19 @@ public class JobDetailsAdm extends Screen{
 		this.display();
 	}
 
+	/**
+	 * Método responsável por exibir a tela de visualização de empresa.
+	 * @param event define o evento de clique no botão.
+	 */
 	private void displayCompany(ActionEvent event) {
 		new CompanyAdm(company);
 		this.dispose();
 	}
 	
+	/**
+	 * Método responsável por atualizar os dados da vaga de emprego.
+	 * @param action define o evento de clique no botão.
+	 */
 	private void updateJob(ActionEvent action) {
 		String name = this.nameField.getText().trim();
 		String occupationArea = this.occupationAreaField.getText().trim();
@@ -133,6 +153,10 @@ public class JobDetailsAdm extends Screen{
 		this.displaySuccess("employer");
 	}
 	
+	/**
+	 * Método responsável por excluir uma vaga de emprego.
+	 * @param action define o evento de clique no botão.
+	 */
 	private void deleteJob(ActionEvent action) {
 		jobController.deleteJob(job, company);
 		this.displaySuccess("employer");

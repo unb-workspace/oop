@@ -14,7 +14,7 @@ public class Address {
     /**
      * Método construtor responsável por definir um endereço físico.
      * @param state determina o estado no qual a empresa está localizada
-     * @param city determina a cidada na qual a empresa está lozalizada
+     * @param city determina a cidade na qual a empresa está lozalizada
      * @param street determina a rua na qual a empresa está localizada
      */
     public Address(String state, String city, String street) {

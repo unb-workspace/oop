@@ -12,6 +12,14 @@ import views.components.TextField;
 import views.components.Button;
 import views.components.TextLabel;
 
+/**
+ * Tela designada à criação de uma vaga de emprego.
+ * @see Screen
+ * @author Ana Clara, Arthur e Caio.
+ * @since 2023.
+ * @version 2.1.
+ */
+
 public class AddJob extends Screen {
     Dimension textFieldSize = new Dimension(200, 30);
     Color colorField = new Color(199, 194, 194);
@@ -29,6 +37,9 @@ public class AddJob extends Screen {
     private final JComboBox<String> modalityField = new JComboBox<String>(JobController.getModalities());
     private final JComboBox<Object> companyField = new JComboBox<Object>(companyController.getCompanyOwners().toArray());
 
+    /**
+     * Método construtor responsável pela inicialização da tela de criação de uma vaga de emprego.
+     */
     public AddJob() {
         super("Adicionar Vaga");
 
@@ -88,6 +99,10 @@ public class AddJob extends Screen {
         this.display();
     }
 
+    /**
+     * Método responsável por adicionar uma vaga de emprego.
+     * @param action define a ação de adicionar uma vaga de emprego.
+     */
     private void addJob(ActionEvent action) {
         String name = this.nameField.getText().trim();
         String occupationArea = this.occupationAreaField.getText().trim();

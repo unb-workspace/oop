@@ -11,6 +11,13 @@ import views.components.ComboBox;
 import views.components.TextLabel;
 import java.awt.event.ActionEvent;
 
+/**
+ * Tela encarregada pela criação de uma empresa.
+ * @see Screen
+ * @author Ana Clara, Arthur e Caio.
+ * @since 2023.
+ * @version 1.0
+ */
 public class CreateCompany extends Screen {
     Dimension textFieldSize = new Dimension(200, 30);
     Color colorField = new Color(199, 194, 194);
@@ -27,6 +34,9 @@ public class CreateCompany extends Screen {
     private final Button createButton = new Button("Criar");
     private final ComboBox ownerField = new ComboBox(employerController.getEmployers().keySet().toArray());
 
+    /**
+     * Método construtor responsável pela inicialização da tela de criação de empresa.
+     */
     public CreateCompany() {
         super("Criar Empresa");
 
@@ -78,6 +88,10 @@ public class CreateCompany extends Screen {
         this.display();
     }
 
+    /**
+     * Método responsável pela criação de uma empresa ao clicar no botão "Criar".
+     * @param action define a ação que será executada.
+     */
     private void createCompany(ActionEvent action) {
         String name = this.nameField.getText().trim();
         String email = this.emailField.getText().trim();

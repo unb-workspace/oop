@@ -17,6 +17,13 @@ import models.Company;
 import models.Employer;
 import models.Job;
 
+/**
+ * Classe responsável pela criação da tela de busca de emprego.
+ * @see Screen
+ * @author Ana Clara, Arthur e Caio.
+ * @since 2023.
+ * @version 1.4
+ */
 public class SearchJobs extends Screen {
     private final Object[] displayTypes = { "Vaga", "Empresa"};
     private final String default_option = "Qualquer região";
@@ -37,7 +44,11 @@ public class SearchJobs extends Screen {
     private JList<Object> displayedJobs;
     private final String userType;
 
-    public SearchJobs(String userType) { // employer or employee
+    /**
+     * Método construtor responsável pela inicialização da tela de busca de emprego.
+     * @param userType define o tipo de usuário que está acessando a tela.
+     */
+    public SearchJobs(String userType) {
         super();
         this.userType = userType;
         this.addCreateAccountButton();
@@ -55,6 +66,9 @@ public class SearchJobs extends Screen {
         this.display();
     }
 
+    /**
+     * Método responsável por criar o botão de criação de conta.
+     */
     private void addCreateAccountButton() {
         GridBagConstraints constraint = new GridBagConstraints();
         constraint.anchor = GridBagConstraints.WEST;
@@ -79,6 +93,9 @@ public class SearchJobs extends Screen {
         this.header.add(button, constraint);
     }
 
+    /**
+     * Método responsável por criar o botão de criação de empresa.
+     */
     private void addCompanyButton() {
         GridBagConstraints constraint = new GridBagConstraints();
         constraint.anchor = GridBagConstraints.WEST;
@@ -97,6 +114,9 @@ public class SearchJobs extends Screen {
         this.header.add(button, constraint);
     }
 
+    /**
+     * Método responsável por criar o botão de criação de vaga de emprego.
+     */
     private void addJobButton() {
         GridBagConstraints constraint = new GridBagConstraints();
         constraint.anchor = GridBagConstraints.WEST;
@@ -115,6 +135,9 @@ public class SearchJobs extends Screen {
         this.header.add(button, constraint);
     }
 
+    /**
+     * Método responsável por criar o filtro de busca.
+     */
     private void createFilter() {
         this.filter.setLayout(new GridLayout(5, 2, 5, 5));
         
@@ -150,6 +173,9 @@ public class SearchJobs extends Screen {
         this.bodyPanel.add(filter, BorderLayout.NORTH);
     }
 
+    /**
+     * Método responsável por criar a lista de vagas de emprego.
+     */
     private void createList() {
         ArrayList<String> jobs = jobController.getJobsList(companyController.getCompanies());
         this.setDisplayedJobs(jobs.toArray());
@@ -157,6 +183,10 @@ public class SearchJobs extends Screen {
         this.bodyPanel.add(jobListPanel, BorderLayout.CENTER);
     }
 
+    /**
+     * Método responsável por filtrar as vagas de emprego.
+     * @param action define a ação de filtragem.
+     */
     private void filterAction(ActionEvent action) {
         String region = (String) filterRegion.getSelectedItem();
         String type = (String) filterBox.getSelectedItem();
@@ -184,6 +214,10 @@ public class SearchJobs extends Screen {
         this.setDisplayedJobs(jobs.toArray());
     }
 
+    /**
+     * Método responsável por criar a lista de vagas de emprego.
+     * @param jobs define as vagas de emprego a serem exibidas.
+     */
     public void setDisplayedJobs(Object[] jobs) {
         displayedJobs = new JList<>(jobs);
         JScrollPane listScroller = new JScrollPane(displayedJobs);
@@ -205,6 +239,10 @@ public class SearchJobs extends Screen {
         this.jobListPanel.repaint();
     }
 
+    /**
+     * Método responsável por obter o item selecionado.
+     * @param event define o evento de seleção.
+     */
     private void getSelectedItem(ListSelectionEvent event) {
         if(!displayedJobs.getValueIsAdjusting())
             return;
@@ -227,6 +265,9 @@ public class SearchJobs extends Screen {
         this.dispose();
     }
 
+    /**
+     * Método responsável por criar o botão secreto.
+     */
     private void addSecretButton() {
         ImageIcon secretIcon = new ImageIcon("src/resources/images/copyright.png");
         JButton button = new JButton("Todos os direitos reservados ©");

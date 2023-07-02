@@ -10,6 +10,13 @@ import views.components.TextLabel;
 import views.components.ComboBox;
 import controllers.CompanyController;
 
+/**
+ * Tela de visualização e edição de empresa.
+ * @see Screen
+ * @author Ana Clara, Arthur e Caio.
+ * @since 2023.
+ * @version 1.0
+ */
 public class CompanyAdm extends Screen {	
 	private final CompanyController companyController = new CompanyController();
 	private final JPanel panel = new JPanel();
@@ -24,6 +31,10 @@ public class CompanyAdm extends Screen {
     private final TextField occupationAreaField = new TextField();
     private final Company company;
 	
+	/**
+	 * Método construtor responsável pela criação da tela de visualizaçãoe  edição de empresa.
+	 * @param company define a empresa a ser visualizada e/ou editada.
+	 */
 	public CompanyAdm(Company company) {
 		super();
 		
@@ -85,6 +96,10 @@ public class CompanyAdm extends Screen {
 		this.display();
 	}
 	
+	/**
+	 * Método responsável por atualizar os dados da empresa ao clicar no botão "Salvar".
+	 * @param action define o evento de clique no botão.	
+	 */
 	private void updateCompany(ActionEvent action) {
 		String name = this.nameField.getText().trim();
 		String email = this.emailField.getText().trim();
@@ -107,6 +122,10 @@ public class CompanyAdm extends Screen {
 		this.displaySuccess("employer");
 	}
 	
+	/**
+	 * Método responsável por excluir a empresa ao clicar no botão "Excluir".
+	 * @param event define o evento de clique no botão.
+	 */
 	private void deleteCompany(ActionEvent event) {
 		companyController.deleteCompany(company);
 		this.displaySuccess("employer");

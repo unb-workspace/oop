@@ -1,10 +1,10 @@
 package models;
 
 /**
- * Classe Job contém os atributos de uma vaga de emprego
+ * A classe <code>Job</code> contém os atributos de uma vaga de emprego.
  * @author Ana Clara, Arthur e Caio.
  * @since 2023.
- * @version 1.0
+ * @version 1.2
  */
 public class Job {
 	private String name;
@@ -15,7 +15,7 @@ public class Job {
     private String requirements;
 
     /**
-     * Método construtor de uma vaga de emprego
+     * Método construtor de uma vaga de emprego.
      * @param name define o nome da vaga de emprego
      * @param salary atribui um salário para o cargo
      * @param workload define a carga horária da vaga
@@ -34,6 +34,11 @@ public class Job {
 
     /**
      * Método construtor sobrecarregado, removido o parâmetro de requisitos
+     * @param name define o nome da vaga de emprego
+     * @param salary atribui um salário para o cargo
+     * @param workload define a carga horária da vaga
+     * @param modality define se o emprego ofertado é remoto, presencial ou híbrido
+     * @param occupation_area define o segmento profissinal da vaga oferecida
      */
     public Job(String name, int salary, int workload, String modality, String occupation_area) {
     	this.salary = salary;

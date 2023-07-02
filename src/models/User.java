@@ -3,7 +3,7 @@ package models;
 import java.util.Date;
 
 /**
- * Classe User designada para armazenar informações sobre um usuário e é a classe pai.
+ * A classe User é designada para a criação de um usuário e é a classe pai de <code>Employer</code> e <code>Employee</code>.
  * @author Ana Clara, Arthur e Caio.
  * @since 2023.
  * @version 1.0
@@ -15,7 +15,7 @@ public abstract class User {
     protected Date creation_date;
 
     /**
-     *Método construtor utilizado designado para a criação de um objeto do tipo <code>User</code>.
+     *Método construtor responsável pela criação de um usuário.
      * @param username define o nome de usuário.
      * @param password define a senha de acesso do usuário.
      * @param name define o nome do criador da conta.

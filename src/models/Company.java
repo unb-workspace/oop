@@ -4,10 +4,11 @@ import java.util.ArrayList;
 
 /**
  * A classe Company contém as informações de uma determinada empresa.
+ * <p>
  * Contém métodos responsáveis por adicionar ou remover uma vaga de emprego.
  * @author Ana Clara, Arthur e Caio.
  * @since 2023.
- * @version 1.0.
+ * @version 1.2.
  */
 public class Company {
     private String name;
@@ -31,6 +32,9 @@ public class Company {
 
     /**
      * Sobrecarga do método construtor, o qual recebe também o parâmetro <code>address</code>.
+     * @param name define o nome da empresa.
+     * @param occupation_area define a área de ocupação dessa empresa.
+     * @param email define o email da empresa.
      * @param address define o endereço da empresa.
      */
     public Company(String name, String occupation_area, String email, Address address) {
@@ -60,7 +64,7 @@ public class Company {
     }
 
     public void setRepresentant(String username) {
-        representant = username;
+        this.representant = username;
     }
 
     public ArrayList<Job> getJobs() {

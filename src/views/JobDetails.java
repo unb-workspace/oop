@@ -8,6 +8,13 @@ import models.Company;
 import views.components.TextLabel;
 import views.components.Button;
 
+/**
+ * Tela de visualização de detalhes de uma vaga de emprego.
+ * @see Screen
+ * @author Ana Clara, Arthur e Caio.
+ * @since 2023.
+ * @version 1.0 
+ */
 public class JobDetails extends Screen {
 	private final Company company;
 	private final Job job;
@@ -17,6 +24,11 @@ public class JobDetails extends Screen {
 	private final Button showCompanyButton = new Button("Ver Empresa");
 	private final Button backButton = new Button("Voltar");
 	
+	/**
+	 * Método construtor responsável pela criação da tela de visualização de detalhes de uma vaga de emprego.
+	 * @param company define a empresa da vaga de emprego.
+	 * @param job define a vaga de emprego.
+	 */
 	public JobDetails(Company company, Job job) {
 		super();
 		this.company = company;
@@ -71,11 +83,19 @@ public class JobDetails extends Screen {
 		this.display();
 	}
 
+	/**
+	 * Método responsável por mostrar a empresa da vaga de emprego ao clicar no botão "Ver Empresa".
+	 * @param event define o evento de clique no botão.
+	 */
 	private void showCompany(ActionEvent event) {
 		new ShowCompany(this.company, this.job);
 		this.dispose();
 	}
 
+	/**
+	 * Método responsável por voltar à tela de busca de vagas de emprego ao clicar no botão "Voltar".
+	 * @param event define o evento de clique no botão.
+	 */
 	private void back(ActionEvent event) {
 		new SearchJobs("employee");
 		this.dispose();
