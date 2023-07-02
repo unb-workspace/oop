@@ -13,7 +13,7 @@ import models.*;
  */
 public class TestUnits {
     /**
-     * Testa se o método de criação e busca da classe <code>Employee> está funcionando corretamente.
+     * Testa se o método de criação e busca da classe <code>Employee</code> está funcionando corretamente.
      */
    @Test
    public void testEmployeeUsername() {
@@ -24,7 +24,7 @@ public class TestUnits {
    }
 
     /**
-     * Testa se o método de criação e busca da classe <code>Employer> está funcionando corretamente.
+     * Testa se o método de criação e busca da classe <code>Employer</code> está funcionando corretamente.
      */
    @Test
    public void testEmployerUsername() {
