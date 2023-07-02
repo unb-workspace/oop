@@ -98,7 +98,7 @@ public class CompanyController {
      * Filtra os objetos do tipo <code>Company</code> de uma lista pré-definida através do parâmetro <code>nome</code>.
      * Caso o nome da empresa contenha uma parte (ou seja, é substring), será retornada.
      * @param name o nome desejado para filtrar
-     * @param companies a lista de empresas a ser filtrada, <code>ArrayList&lt;Company&gt</code>;
+     * @param companies a lista de empresas a ser filtrada, <code>ArrayList&lt;Company&gt;</code>;
      * @return uma lista das empresas filtradas, <code>ArrayList&lt;Company&gt;</code>
      */
     public ArrayList<Company> filterCompaniesByName(String name, ArrayList<Company> companies) {
