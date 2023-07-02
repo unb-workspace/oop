@@ -2,6 +2,13 @@ package models;
 
 import java.util.ArrayList;
 
+/**
+ * A classe Company contém as informações de uma determinada empresa.
+ * Contém métodos responsáveis por adicionar ou remover uma vaga de emprego.
+ * @author Ana Clara, Arthur e Caio.
+ * @since 2023.
+ * @version 1.0.
+ */
 public class Company {
     private String name;
     private String occupation_area;
@@ -10,12 +17,22 @@ public class Company {
     private String representant;
     private final ArrayList<Job> jobs = new ArrayList<>();
 
+    /**
+     * Método construtor responsável por criar uma empresa.
+     * @param name define o nome da empresa.
+     * @param occupation_area define a área de ocupação dessa empresa.
+     * @param email define o email da empresa.
+     */
     public Company(String name, String occupation_area, String email) {
         this.name = name;
         this.occupation_area = occupation_area;
         this.email = email;
     }
 
+    /**
+     * Sobrecarga do método construtor, o qual recebe também o parâmetro <code>address</code>.
+     * @param address define o endereço da empresa.
+     */
     public Company(String name, String occupation_area, String email, Address address) {
         this.name = name;
         this.occupation_area = occupation_area;
@@ -62,10 +79,18 @@ public class Company {
         this.address = address;
     }
 
+    /**
+     * Adiciona um novo emprego na ArrayList de empregos
+     * @param job vaga de emprego de uma empresa
+     */
     public void addJob(Job job) {
         jobs.add(job);
     }
 
+    /**
+     * Remove um emprego da ArrayList de empregos
+     * @param job vaga de emprego de uma empresa
+     */
     public void removeJob(Job job) {
         jobs.remove(job);
     }

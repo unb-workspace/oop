@@ -1,10 +1,22 @@
 package models;
 
+/**
+ * A classe Address contém informações a respeito do endereço físico de uma empresa.
+ * @author Ana Clara, Arthur e Caio.
+ * @since 2023.
+ * @version 1.2
+ */
 public class Address {
     private String state;
     private String city;
     private String street;
-    
+
+    /**
+     * Método construtor responsável por definir um endereço físico.
+     * @param state determina o estado no qual a empresa está localizada
+     * @param city determina a cidada na qual a empresa está lozalizada
+     * @param street determina a rua na qual a empresa está localizada
+     */
     public Address(String state, String city, String street) {
         this.state = state;
         this.city = city;
