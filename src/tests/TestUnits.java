@@ -5,7 +5,16 @@ import org.junit.jupiter.api.Test;
 import controllers.*;
 import models.*;
 
+/**
+ * Classe responsável por testar as unidades do sistema.
+ * @author Ana Clara, Arthur e Caio.
+ * @since 2023.
+ * @version 1.2
+ */
 public class TestUnits {
+    /**
+     * Testa se o método de criação e busca da classe <code>Employee> está funcionando corretamente.
+     */
    @Test
    public void testEmployeeUsername() {
        EmployeeController employeeController = new EmployeeController();
@@ -14,6 +23,9 @@ public class TestUnits {
        assertEquals(employeeController.getEmployeeByUsername("joaopedefeijao"), employee);
    }
 
+    /**
+     * Testa se o método de criação e busca da classe <code>Employer> está funcionando corretamente.
+     */
    @Test
    public void testEmployerUsername() {
        EmployerController employerController = new EmployerController();
@@ -22,6 +34,9 @@ public class TestUnits {
        assertEquals(employerController.getEmployerByUsername("pinoquio"), employer);
    }
 
+    /**
+     * Testa se o método de receber valores de salário válidos está funcionando corretamente.
+     */
    @Test
    public void testValidSalary() {
        String salary = "0";
